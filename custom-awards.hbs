@@ -12,17 +12,35 @@
 
 {{#if content}}<section class="section"><div class="container container--narrow"><div class="prose gh-content reveal">{{content}}</div></div></section>{{/if}}
 
-{{!-- Awards: page slug "our-awards" — Title = page title, Body = award entries --}}
-{{#get "pages" slug="our-awards" as |aw|}}
+{{!-- Awards: posts tagged "awards" — Title = award name, Excerpt = detail, Publish date = year, Feature image = certificate --}}
+{{#get "posts" filter="tag:awards" limit="50" order="published_at asc" as |aw|}}
     {{#if aw}}
-    {{#foreach aw}}
     <section class="section aw-section">
         <div class="container">
             <div class="shead-minimal reveal"><span class="shead-label">Recognition</span><h2>Awards &amp; Recognitions</h2></div>
-            <div class="prose gh-content reveal">{{content}}</div>
+            <div class="aw-slider reveal" id="awSlider">
+                <div class="aw-track" id="awTrack">
+                    {{#foreach aw}}
+                    <article class="aw-card">
+                        <div class="aw-card__img{{#unless feature_image}} is-grad g-blue{{/unless}}">
+                            {{#if feature_image}}<img src="{{img_url feature_image size="m" format="webp"}}" alt="{{title}}" loading="lazy">{{/if}}
+                        </div>
+                        <div class="aw-card__body">
+                            <span class="aw-card__yr">{{date format="YYYY"}}</span>
+                            <h4>{{title}}</h4>
+                            {{#if excerpt}}<p>{{excerpt}}</p>{{/if}}
+                        </div>
+                    </article>
+                    {{/foreach}}
+                </div>
+                <div class="aw-controls">
+                    <button class="aw-btn aw-btn--prev" id="awPrev" aria-label="Previous awards"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <div class="aw-dots" id="awDots"></div>
+                    <button class="aw-btn aw-btn--next" id="awNext" aria-label="Next awards"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                </div>
+            </div>
         </div>
     </section>
-    {{/foreach}}
     {{/if}}
 {{/get}}
 
