@@ -430,7 +430,7 @@ body{top:0!important}
 .prow__body p{color:var(--c-ink-soft);margin-bottom:1rem}
 
 /* ==========================================================================
-   PROGRAMS — alternating editorial layout
+   PROGRAMS ï¿½ alternating editorial layout
    ========================================================================== */
 .peditorial{background:var(--c-dark);color:#fff;padding:clamp(3.5rem,8vw,7rem) 0}
 .peditorial__list{display:flex;flex-direction:column;gap:clamp(72px,11vw,140px)}
@@ -520,7 +520,7 @@ body{top:0!important}
 .involve-card h3{font-size:1.3rem;margin-bottom:.5rem}
 .involve-card p{color:var(--c-ink-soft);margin-bottom:1rem}
 
-/* ---- get involved — overlapping action banner ---- */
+/* ---- get involved ï¿½ overlapping action banner ---- */
 .involve-section{padding:0 0 clamp(3.5rem,7vw,5.5rem)}
 .involve-banner{display:grid;grid-template-columns:repeat(3,1fr);position:relative;z-index:5;
   margin-top:clamp(-110px,-8vw,-70px);border-radius:var(--r-lg);overflow:hidden;
@@ -700,7 +700,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 @media(max-width:980px){.wwd__grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.wwd__grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px}}
 
-/* ---- "What We Are Doing" — soft gradient zone ---- */
+/* ---- "What We Are Doing" ï¿½ soft gradient zone ---- */
 .wwd{background:radial-gradient(120% 90% at 50% 0%,#F6F9FD 0%,#EAF1FB 55%,#E9F4EE 100%)}
 
 /* ---- Programs Bento Box grid ---- */
@@ -1315,7 +1315,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   PARTNERS — logo sizing for square/narrow logos
+   PARTNERS ï¿½ logo sizing for square/narrow logos
    per-logo slug class added in main.js, with src/alt fallbacks.
    ========================================================================== */
 .partners__logo[class*="azim"],
@@ -2502,24 +2502,24 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a:hover{
 }
 
 /* ==========================================================================
-   MMM NAV — hide child items from flat top-level list after JS nests them
+   MMM NAV ï¿½ hide child items from flat top-level list after JS nests them
    ========================================================================== */
-/* Before JS runs — hide dash-labeled items using attribute selector */
+/* Before JS runs ï¿½ hide dash-labeled items using attribute selector */
 #mmm-nav-links > .nav-item[data-label^="- "],
 .mmm-nav__links-wrap .nav > .nav-item[data-label^="- "]{
   display:none !important;
 }
-/* After JS marks them — also hide via .mmm-child class */
+/* After JS marks them ï¿½ also hide via .mmm-child class */
 .nav-item.mmm-child{display:none !important}
 
-/* When they're inside .mmm-drop — show them */
+/* When they're inside .mmm-drop ï¿½ show them */
 .mmm-drop > .nav-item,
 .mmm-drop > .nav-item.mmm-child{
   display:block !important;
 }
 
 /* ==========================================================================
-   MMM NAV — final layout + Donate removal + pill wrap
+   MMM NAV ï¿½ final layout + Donate removal + pill wrap
    ========================================================================== */
 
 /* Nav bar: pill shape, wraps content, centered, not full-width */
@@ -2555,7 +2555,7 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a:hover{
   box-shadow:none;
 }
 
-/* Remove Donate from the nav link list — JS may be slow, CSS hides it immediately */
+/* Remove Donate from the nav link list ï¿½ JS may be slow, CSS hides it immediately */
 #mmm-nav-links > .nav-item[data-label="Donate"],
 .mmm-nav__links-wrap .nav > .nav-item.nav-donate,
 .mmm-nav__links-wrap .nav > .nav-item:last-of-type[data-label="Donate"]{
@@ -2581,7 +2581,7 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a:hover{
   white-space:nowrap;flex-shrink:0;
 }
 
-/* Inner page — always solid pill */
+/* Inner page ï¿½ always solid pill */
 body:not(.is-home) .mmm-nav{
   background:rgba(255,255,255,.96) !important;
   border-color:rgba(255,255,255,.8) !important;
@@ -2636,7 +2636,7 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a{
   overflow:visible;
 }
 
-/* Ghost renders <ul class="nav"> — style it */
+/* Ghost renders <ul class="nav"> ï¿½ style it */
 .mmm-nav__left .nav{
   display:flex;
   align-items:center;
@@ -2669,11 +2669,11 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a{
   background:rgba(255,255,255,.15);color:#fff;
 }
 
-/* Donate item inside nav — always hide (shown as dedicated button) */
+/* Donate item inside nav ï¿½ always hide (shown as dedicated button) */
 .mmm-nav__left .nav > .nav-item.nav-donate,
 .mmm-nav__left .nav > .nav-item[data-label="Donate"]{display:none !important}
 
-/* Dash-prefixed child items — hide from flat list */
+/* Dash-prefixed child items ï¿½ hide from flat list */
 .mmm-nav__left .nav > .nav-item[data-label^="- "]{display:none !important}
 .mmm-nav__left .nav > .nav-item.mmm-child{display:none !important}
 
@@ -2847,11 +2847,65 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a{
 .mmm-nav__right{flex-shrink:0;display:flex;align-items:center;gap:.4rem}
 
 /* ==========================================================================
-   MMM NAV v5.3 — remove white background from header wrapper
+   MMM NAV v5.3 ï¿½ remove white background from header wrapper
    The .mmm-header must be transparent; only .mmm-nav pill has a background
    ========================================================================== */
 .mmm-header{
   background:transparent !important;
   box-shadow:none !important;
   border:none !important;
+}
+
+/* ==========================================================================
+   MOBILE NAV â€” accordion dropdowns fix
+   ========================================================================== */
+
+/* Scope child-hiding to desktop nav only, not mobile drawer */
+#mmm-nav-links > .nav-item.mmm-child,
+#mmm-nav-links > .nav-item[data-label^="- "],
+.mmm-nav__left .nav > .nav-item.mmm-child,
+.mmm-nav__left .nav > .nav-item[data-label^="- "]{display:none !important}
+
+/* Mobile drawer: child items visible inside dropdown */
+.mmm-mobile__nav .nav-item.mmm-child{display:block !important}
+.mmm-mobile__nav .nav-item[data-label^="- "]{display:block !important}
+
+/* Mobile dropdown panel */
+.mmm-mobile__nav .mmm-drop{
+  display:none !important;
+  position:static !important;
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  border-left:3px solid var(--c-line) !important;
+  border-radius:0 !important;
+  padding:.2rem 0 .2rem .5rem !important;
+  margin:.2rem 0 .4rem 1rem !important;
+  width:auto !important;
+}
+.mmm-mobile__nav .mmm-has-drop.open > .mmm-drop{display:block !important}
+
+/* Mobile dropdown item links */
+.mmm-mobile__nav .mmm-drop .nav-item > a{
+  padding:.65rem 1rem !important;
+  font-size:.93rem !important;
+  color:var(--c-ink) !important;
+  border-radius:10px !important;
+}
+.mmm-mobile__nav .mmm-drop .nav-item > a:hover{
+  background:var(--c-soft) !important;
+  color:var(--c-primary) !important;
+}
+
+/* Caret rotates when open */
+.mmm-mobile__nav .mmm-has-drop.open > a .mmm-caret{
+  transform:rotate(225deg) !important;
+  margin-top:1px !important;
+}
+
+/* Mobile nav parent item: show caret */
+.mmm-mobile__nav .mmm-has-drop > a{
+  display:flex !important;
+  justify-content:space-between !important;
+  align-items:center !important;
 }
