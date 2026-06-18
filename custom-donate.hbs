@@ -83,7 +83,6 @@
         <div class="donate__main reveal">
             {{!-- Bank/transfer details — edit via the Donate page body in Ghost Admin --}}
             {{#if content}}<div class="prose gh-content donate__bank">{{content}}</div>{{/if}}
-            {{#if @custom.donate_upi_id}}<div class="bank-card"><h3>UPI</h3><p><b>UPI ID:</b> {{@custom.donate_upi_id}}</p></div>{{/if}}
             <div class="tax-note"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>Donations are eligible for tax exemption under Section 80G.</p></div>
         </div>
         <aside class="donate__side reveal reveal--d1">
