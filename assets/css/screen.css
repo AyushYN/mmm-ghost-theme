@@ -2909,3 +2909,18 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a{
   justify-content:space-between !important;
   align-items:center !important;
 }
+
+/* ==========================================================================
+   HEADER WRAPPER — fully transparent, no background bleed
+   ========================================================================== */
+.mmm-header,
+.mmm-header.mmm-header--scrolled,
+#siteHeader{
+  background:transparent !important;
+  box-shadow:none !important;
+  border:none !important;
+  border-radius:0 !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+/* Only the .mmm-nav pill itself gets the background */
