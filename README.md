@@ -2,7 +2,7 @@
 
 Custom Ghost CMS theme for **Morigaon Mahila Mehfil (MMM)**, an NGO based in Morigaon, Assam, India.
 
-Built as part of the **GHOSTED Program** — a collaboration between T4GC and OASIS.
+Built as part of the **GHOSTED Program** - a collaboration between T4GC and OASIS.
 
 ## About MMM
 
@@ -10,8 +10,8 @@ Morigaon Mahila Mehfil has been working with women and children in Morigaon sinc
 
 ## Theme Features
 
-- Fully dynamic — all content managed via Ghost Admin (Posts, Pages, Tags, Custom Settings)
-- Zero hardcoded content — no images, text, or links in template files
+- Fully dynamic - all content managed via Ghost Admin (Posts, Pages, Tags, Custom Settings)
+- Zero hardcoded content - no images, text, or links in template files
 - CMS-driven: hero slider, stat counters, programmes, testimonials, partners marquee, gallery, team, events, newsletters, timeline, VMG, core values, legal badges
 - Dual-row animated partner logo marquee (row 1 scrolls right, row 2 scrolls left)
 - Animated stat counters with Indian locale comma formatting
@@ -44,7 +44,7 @@ See SETUP-GUIDE.md for the complete list of Pages, Posts, Tags, Navigation, and 
 
 ## Built By
 
-Ayush — GHOSTED Program, T4GC / OASIS | Final Year B.Tech CSE
+Ayush and Lucky - GHOSTED Program, T4GC / OASIS | Final Year B.Tech CSE
 
 ## License
 
