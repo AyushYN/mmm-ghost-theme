@@ -17,12 +17,11 @@
   window.addEventListener('scroll', onScroll, { passive: true });
 
   /* ---- 2. Navigation dropdowns ---- */
+  var processNavUl; /* declared here so mobile() can call it */
   (function buildNav(){
-    /* Ghost's {{navigation}} helper renders a <ul class="nav"> with
-       <li class="nav-item"> children. We read labels from link text. */
     var DASH = /^[\s]*[-\u002d\u2010\u2011\u2012\u2013\u2014\u2212]/;
 
-    function processNavUl(ul, isMobile) {
+    processNavUl = function(ul, isMobile) {
       if (!ul) return;
       var items = Array.prototype.slice.call(ul.querySelectorAll(':scope > .nav-item'));
       var lastParent = null;
@@ -37,14 +36,14 @@
         var a = li.querySelector('a');
         if (!a) return;
 
-        /* Remove Donate — shown as dedicated button */
+        /* Remove Donate ï¿½ shown as dedicated button */
         if (label.toLowerCase() === 'donate') {
           li.remove();
           return;
         }
 
         if (DASH.test(label)) {
-          /* Child item — strip dash, nest under last parent */
+          /* Child item ï¿½ strip dash, nest under last parent */
           a.textContent = label.replace(DASH, '').trim();
           if (lastParent) {
             var drop = lastParent.querySelector('.mmm-drop');
@@ -132,12 +131,34 @@
     var menu   = document.getElementById('mmmMobile');
     var close  = document.getElementById('mmmClose');
     if (!burger || !menu) return;
-    function open(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
-    function shut(){ menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+    var mobileBuilt = false;
+    function buildMobileNav(){
+      if (mobileBuilt) return;
+      var mobileNav = menu.querySelector('.mmm-mobile__nav');
+      if (!mobileNav) return;
+      var mobileUl = mobileNav.querySelector('ul.nav');
+      if (mobileUl) {
+        processNavUl(mobileUl, true);
+        mobileBuilt = true;
+      }
+    }
+    function open(){
+      menu.classList.add('open');
+      menu.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+      buildMobileNav();
+    }
+    function shut(){
+      menu.classList.remove('open');
+      menu.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+    }
     burger.addEventListener('click', open);
     if (close) close.addEventListener('click', shut);
     menu.addEventListener('click', function(e){ if(e.target===menu) shut(); });
-    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', shut); });
+    menu.querySelectorAll('a:not(.mmm-has-drop > a)').forEach(function(a){
+      a.addEventListener('click', shut);
+    });
   })();
 /* ---- 4. Hero slider ---- */
   (function hero(){
