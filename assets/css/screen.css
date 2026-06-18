@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    Morigaon Mahila Mehfil - screen.css (theme v3)
    Editorial, fully dynamic, zero bundled images.
    ========================================================================== */
@@ -79,7 +79,7 @@ h1,h2,h3,h4{font-family:var(--f-head);line-height:1.12;font-weight:600;color:var
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
 /* ==========================================================================
-   HEADER / NAV  â€” Full-width dark bar (reference: Mainsail layout)
+   HEADER / NAV  — Full-width dark bar (reference: Mainsail layout)
    ========================================================================== */
 .site-header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0;transition:none}
 .site-header.scrolled{padding:0}
@@ -430,7 +430,7 @@ body{top:0!important}
 .prow__body p{color:var(--c-ink-soft);margin-bottom:1rem}
 
 /* ==========================================================================
-   PROGRAMS â€” alternating editorial layout (v3.2, deep navy, giant numbers)
+   PROGRAMS � alternating editorial layout
    ========================================================================== */
 .peditorial{background:var(--c-dark);color:#fff;padding:clamp(3.5rem,8vw,7rem) 0}
 .peditorial__list{display:flex;flex-direction:column;gap:clamp(72px,11vw,140px)}
@@ -520,27 +520,27 @@ body{top:0!important}
 .involve-card h3{font-size:1.3rem;margin-bottom:.5rem}
 .involve-card p{color:var(--c-ink-soft);margin-bottom:1rem}
 
-/* ---- get involved â€” unified overlapping action banner (v3.2) ---- */
+/* ---- get involved � overlapping action banner ---- */
 .involve-section{padding:0 0 clamp(3.5rem,7vw,5.5rem)}
 .involve-banner{display:grid;grid-template-columns:repeat(3,1fr);position:relative;z-index:5;
   margin-top:clamp(-110px,-8vw,-70px);border-radius:var(--r-lg);overflow:hidden;
   box-shadow:0 30px 70px rgba(16,24,46,.28)}
 
-/* Get Involved page â€” extra bottom padding on hero so subtitle clears the card overlap */
+/* Get Involved page — extra bottom padding on hero so subtitle clears the card overlap */
 body.page-get-involved .page-hero--image,
 body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8rem,14vw,11rem)}
 .involve-block{padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .involve-block__ico{display:inline-grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--c-soft);color:var(--c-primary);margin-bottom:1.1rem}
 .involve-block h3{font-size:1.35rem;margin-bottom:.55rem}
 .involve-block p{color:var(--c-ink-soft);margin-bottom:1.2rem;max-width:22rem}
-/* Block 1 â€” solid white, dark text */
+/* Block 1 — solid white, dark text */
 .involve-block--light{background:#fff;color:var(--c-ink)}
-/* Block 2 â€” solid deep navy, white text/icon */
+/* Block 2 — solid deep navy, white text/icon */
 .involve-block--navy{background:var(--c-dark);color:#fff}
 .involve-block--navy h3{color:#fff}
 .involve-block--navy p{color:rgba(255,255,255,.8)}
 .involve-block--navy .involve-block__ico{background:rgba(255,255,255,.12);color:#fff}
-/* Block 3 â€” community image + heavy dark overlay (green is the bg fallback) */
+/* Block 3 — community image + heavy dark overlay (green is the bg fallback) */
 .involve-block--media{background-color:var(--c-green);background-size:cover;background-position:center;color:#fff}
 .involve-block--media h3{color:#fff}
 .involve-block--media p{color:rgba(255,255,255,.88)}
@@ -676,14 +676,14 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   RIBBON â€” with vertical dividers
+   RIBBON — with vertical dividers
    ========================================================================== */
 .ribbon__grid{display:flex;align-items:center;padding:2.2rem 5%}
 .ribbon__item{flex:1;text-align:center}
 .ribbon__div{width:1px;height:48px;background:rgba(255,255,255,.3);flex-shrink:0}
 
 /* ==========================================================================
-   WHAT WE ARE DOING â€” photo grid
+   WHAT WE ARE DOING — photo grid
    ========================================================================== */
 .wwd{background:var(--c-soft)}
 .shead__sub{color:var(--c-ink-soft);max-width:640px;margin:.6rem auto 0;font-size:.98rem;text-align:center}
@@ -700,10 +700,10 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 @media(max-width:980px){.wwd__grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.wwd__grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px}}
 
-/* ---- "What We Are Doing" â€” soft gradient zone (v3.3) ---- */
+/* ---- "What We Are Doing" � soft gradient zone ---- */
 .wwd{background:radial-gradient(120% 90% at 50% 0%,#F6F9FD 0%,#EAF1FB 55%,#E9F4EE 100%)}
 
-/* ---- Programs Bento Box grid (v3.3) â€” image top / white body bottom ---- */
+/* ---- Programs Bento Box grid ---- */
 .bento-wrap{max-width:var(--wrap);margin:2.5rem auto .5rem;padding:0 5%}
 .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem}
 .bento__card{display:flex;flex-direction:column;background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--sh-1);transition:transform .3s ease,box-shadow .3s ease;text-decoration:none;color:var(--c-ink)}
@@ -736,7 +736,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 /* ==========================================================================
    IMPACT ICON GRID (icon + number + label)
    ========================================================================== */
-/* Clean CSS-border grid â€” no divider DOM elements */
+/* Clean CSS-border grid — no divider DOM elements */
 .ic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:2rem 0;border:1px solid var(--c-line);border-radius:var(--r-lg);overflow:hidden}
 .ic-cell{padding:2.4rem 2rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;background:#fff;transition:.3s var(--ease);border-right:1px solid var(--c-line);border-bottom:1px solid var(--c-line)}
 .ic-cell:nth-child(3n){border-right:none}
@@ -763,7 +763,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   TEAM â€” group photo
+   TEAM — group photo
    ========================================================================== */
 .team-group-photo{border-radius:var(--r-lg);overflow:hidden;position:relative;line-height:0;box-shadow:var(--sh-2)}
 .team-group-photo img{width:100%;height:auto;max-height:600px;object-fit:cover;object-position:center top}
@@ -794,7 +794,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 @media(max-width:600px){.aw-card{flex:0 0 85%}}
 
 /* ==========================================================================
-   ABOUT PAGE â€” editorial redesign
+   ABOUT PAGE — editorial redesign
    ========================================================================== */
 .ab-hero{position:relative;padding:11rem 0 5rem;color:#fff;overflow:hidden}
 .ab-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center}
@@ -863,7 +863,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   ABOUT INTRO â€” aside card (replaces collage on about page)
+   ABOUT INTRO — aside card (replaces collage on about page)
    ========================================================================== */
 .ab-intro__aside{display:flex;align-items:stretch}
 .ab-aside-card{background:var(--c-dark);color:#fff;border-radius:var(--r-lg);padding:2.8rem 2.4rem;display:flex;flex-direction:column;gap:1.4rem;position:relative;overflow:hidden;flex:1}
@@ -884,7 +884,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   TEAM LEADERS â€” split card, alternating photo side
+   TEAM LEADERS — split card, alternating photo side
    ========================================================================== */
 .leaders-list{display:flex;flex-direction:column;gap:2rem;max-width:860px;margin:0 auto}
 .leader-card{display:grid;grid-template-columns:260px 1fr;background:#fff;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-1);transition:.3s var(--ease);min-height:300px}
@@ -905,9 +905,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
   .leader-card__photo img{max-height:300px;object-position:center top}
 }
 
-/* ==========================================================================
-   TASK 6 â€” Gallery pagination buttons
-   ========================================================================== */
+
 .g-prev,.g-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:1px solid var(--c-line);border-radius:50%;width:44px;height:44px;display:grid;place-items:center;cursor:pointer;z-index:4;transition:.2s var(--ease)}
 .g-prev{left:-22px}
 .g-next{right:-22px}
@@ -917,9 +915,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease)}
 .g-item:hover img{transform:scale(1.05)}
 
-/* ==========================================================================
-   TASK 7 â€” Newsletter PDF modal
-   ========================================================================== */
+
 .pdf-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9000;align-items:center;justify-content:center}
 .pdf-modal.open{display:flex}
 .pdf-modal__inner{background:#fff;border-radius:var(--r-md);overflow:hidden;display:flex;flex-direction:column;width:min(90vw,900px);height:min(90vh,700px)}
@@ -928,9 +924,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 .pdf-modal__close{font-size:1.5rem;background:none;border:none;cursor:pointer;color:var(--c-ink-soft);line-height:1}
 .pdf-modal__inner iframe{flex:1;border:none;width:100%}
 
-/* ==========================================================================
-   TASK 8 â€” About page media split
-   ========================================================================== */
+
 .about-split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .about-split.no-media{grid-template-columns:1fr}
 .about-split__frame{position:relative;aspect-ratio:16/9;border-radius:var(--r-md);overflow:hidden;background:var(--c-soft);cursor:pointer}
@@ -941,9 +935,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 .about-split__body h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin:.4rem 0 1rem}
 @media(max-width:768px){.about-split{grid-template-columns:1fr}}
 
-/* ==========================================================================
-   TASK 9 â€” Animated timeline
-   ========================================================================== */
+
 .tl-track{position:absolute;left:5px;top:0;bottom:0;width:2px}
 .tl-line{position:absolute;inset:0;background:var(--c-line)}
 .tl-progress{position:absolute;top:0;left:0;width:100%;background:var(--c-rust);transition:height .05s linear}
@@ -952,26 +944,20 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 .tl-item--past .tl-dot{background:var(--c-rust);opacity:.5}
 .tl-item--active .tl-card{border-color:var(--c-rust)}
 
-/* ==========================================================================
-   TASK 10 â€” Team tabs
-   ========================================================================== */
+
 .team-tabs{display:flex;gap:.5rem;border-bottom:2px solid var(--c-line);margin-bottom:2.5rem}
 .team-tab{background:none;border:none;padding:.7rem 1.4rem;font-size:.95rem;font-weight:600;color:var(--c-ink-soft);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:.2s var(--ease)}
 .team-tab.is-active{color:var(--c-primary);border-bottom-color:var(--c-primary)}
 
-/* ==========================================================================
-   MARQUEE â€” remove CSS animation (replaced by JS rAF loop, Task 5)
-   ========================================================================== */
+/* ---- Partners marquee: CSS animation disabled (JS-driven) ---- */
 .marquee__track{animation:none!important}
 
-/* ==========================================================================
-   TASK 14 â€” Partners fallback pills
-   ========================================================================== */
+
 .partners__fallback{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;padding:1.5rem 0}
 .partners__pill{padding:.55rem 1.4rem;border:1px solid var(--c-line);border-radius:var(--r-pill);font-size:.88rem;font-weight:600;color:var(--c-ink-soft);background:#fff}
 
 /* ==========================================================================
-   PARTNERS â€” two-row bidirectional marquee
+   PARTNERS — two-row bidirectional marquee
    ========================================================================== */
 .partners__rows{padding:.5rem 0;overflow:hidden;display:flex;flex-direction:column;gap:.75rem}
 .partners__rows .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
@@ -979,9 +965,6 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 .partners__logo img{height:48px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.65;transition:.3s var(--ease)}
 .partners__logo img:hover{filter:none;opacity:1}
 
-/* ==========================================================================
-   v3.1 ADDITIONS â€” appended by refactor
-   ========================================================================== */
 
 /* --- Partners dual-row marquee --- */
 .partners__rows {
@@ -1233,9 +1216,6 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 .event-card--past { opacity: .8; }
 .event-card--past .event-card__date { background: rgba(0,0,0,.45); }
 
-/* ==========================================================================
-   PARTNERS MARQUEE â€” definitive override (v3.1 fix)
-   ========================================================================== */
 
 /* Hard-hide the Ghost Gallery source div - display:none AND visibility so
    nothing bleeds through before JS strips it */
@@ -1267,7 +1247,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
   width: 100%;
 }
 
-/* The actual scrolling track â€” inline-flex, JS drives translateX */
+/* The actual scrolling track — inline-flex, JS drives translateX */
 .partners__rows .marquee__track {
   display: inline-flex;
   align-items: center;
@@ -1311,9 +1291,6 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
   opacity: 1;
 }
 
-/* ==========================================================================
-   PARTNERS MARQUEE â€” full-width rows + larger logos (v3.1 fix 2)
-   ========================================================================== */
 
 /* Pull the rows out of the container so they span full viewport width */
 .partners .partners__rows {
@@ -1338,10 +1315,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   PARTNERS â€” boost square / narrow logos (Azim Premji, PHF) so they match
-   the visual weight of the wide reference logos (e.g. Reliance Foundation).
-   These logos aren't width-constrained, so we increase their rendered HEIGHT.
-   object-fit:contain keeps aspect ratio (no stretching). Targeted via the
+   PARTNERS � logo sizing for square/narrow logos
    per-logo slug class added in main.js, with src/alt fallbacks.
    ========================================================================== */
 .partners__logo[class*="azim"],
@@ -1357,7 +1331,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 .partners__logo:has(img[alt*="hamlyn" i]) {
   padding: .3rem 1.25rem !important;
 }
-/* Azim Premji â€” moderately narrow (1.87:1): a modest height bump */
+/* Azim Premji — moderately narrow (1.87:1): a modest height bump */
 .partners__logo[class*="azim"] img,
 .partners__logo[class*="premji"] img,
 .partners__logo img[src*="azim" i],
@@ -1368,7 +1342,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
   max-width: 210px !important;
   object-fit: contain !important;
 }
-/* PHF â€” square (1:1): needs the largest bump to carry equal visual weight */
+/* PHF — square (1:1): needs the largest bump to carry equal visual weight */
 .partners__logo[class*="hamlyn"] img,
 .partners__logo[class*="phf"] img,
 .partners__logo img[src*="hamlyn" i],
@@ -1381,7 +1355,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   ABOUT SPLIT â€” image/content balance fix
+   ABOUT SPLIT — image/content balance fix
    ========================================================================== */
 .about-split {
   align-items: flex-start;
@@ -1405,10 +1379,10 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   COMPREHENSIVE RESPONSIVE FIX â€” all breakpoints
+   COMPREHENSIVE RESPONSIVE FIX — all breakpoints
    ========================================================================== */
 
-/* ---- Tablet: 768px â€“ 980px ---- */
+/* ---- Tablet: 768px – 980px ---- */
 @media (max-width: 980px) {
   /* impact icon grid */
   .ic-grid { grid-template-columns: 1fr 2px 1fr; grid-template-rows: auto 2px auto 2px auto; }
@@ -1529,7 +1503,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   RESPONSIVE â€” mobile nav breakpoint aligned to reference theme (860px)
+   RESPONSIVE — mobile nav breakpoint aligned to reference theme (860px)
    ========================================================================== */
 @media (max-width: 768px) {
   .nav-build { display: none !important; }
@@ -1542,12 +1516,10 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
   .mobile-drawer { display: none !important; }
 }
 
-/* ==========================================================================
-   CRITICAL MOBILE FIX â€” impact grid + all broken layouts
-   ========================================================================== */
+
 @media (max-width: 700px) {
 
-  /* Impact icon grid â€” strip the divider columns entirely */
+  /* Impact icon grid — strip the divider columns entirely */
   .ic-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
@@ -1591,7 +1563,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
   .ab-stat { border-right: 1px solid var(--c-line); border-bottom: none; }
   .ab-stat:nth-child(even) { border-right: none; }
 
-  /* Nav â€” force hamburger on all narrow screens */
+  /* Nav — force hamburger on all narrow screens */
   .nav-build { display: none !important; }
   .nav-toggle { display: flex !important; }
   .btn--donate { display: none !important; }
@@ -1628,9 +1600,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
   .nl-grid { grid-template-columns: 1fr !important; }
 }
 
-/* ==========================================================================
-   NAV BAR MOBILE SIZE FIX
-   ========================================================================== */
+
 @media (max-width: 700px) {
   .site-header {
     padding: .6rem 4% !important;
@@ -1650,9 +1620,6 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
   }
 }
 
-/* ==========================================================================
-   DEFINITIVE MOBILE FIX v2
-   ========================================================================== */
 
 /* --- Nav: push toggle to the right on mobile --- */
 @media (max-width: 768px) {
@@ -1718,7 +1685,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   MOBILE NAV â€” separate class from desktop nav-build to avoid CSS conflicts
+   MOBILE NAV — separate class from desktop nav-build to avoid CSS conflicts
    ========================================================================== */
 .mobile-nav .nav {
   display: flex;
@@ -1778,7 +1745,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   NAV BAR â€” tighten on narrow screens
+   NAV BAR — tighten on narrow screens
    ========================================================================== */
 @media (max-width: 768px) {
   .nav-toggle {
@@ -1795,7 +1762,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   ADDED COMPONENTS (v3.2) â€” donate grid + stats banner, gallery carousel,
+   ADDED COMPONENTS (v3.2) — donate grid + stats banner, gallery carousel,
    impact overview grid. Fully responsive (flexbox/grid + media queries).
    ========================================================================== */
 
@@ -1841,7 +1808,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   INVOLVE BLOCK â€” nth-child card colour styles
+   INVOLVE BLOCK — nth-child card colour styles
    (replaces class-based approach; works without {{#match}} helper)
    ========================================================================== */
 .involve-banner .involve-block:nth-child(1){background:var(--c-soft);color:var(--c-ink)}
@@ -1861,7 +1828,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 .involve-banner .involve-block:nth-child(3) .involve-block__ico{background:rgba(255,255,255,.2);color:#fff}
 
 /* ==========================================================================
-   COMPONENT 5 â€” Process Timeline (dark mode, alternating glassmorphic cards)
+   COMPONENT 5 — Process Timeline (dark mode, alternating glassmorphic cards)
    ========================================================================== */
 .process-timeline-section.dark-mode{background:#111;color:#fff;padding:5rem 0;position:relative;overflow:hidden}
 .process-timeline-section .timeline-header{text-align:center;margin-bottom:3rem}
@@ -1886,12 +1853,12 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   NAV ENHANCEMENT â€” ensure pill shadow matches design brief
+   NAV ENHANCEMENT — ensure pill shadow matches design brief
    ========================================================================== */
 .nav-bar{box-shadow:0 8px 32px rgba(16,24,46,.18),0 1.5px 4px rgba(16,24,46,.10)}
 
 /* ==========================================================================
-   NAV â€” Tripart layout (hamburger+links | logo center | contact+donate right)
+   NAV — Tripart layout (hamburger+links | logo center | contact+donate right)
    ========================================================================== */
 .nav-bar--tripart{display:flex;align-items:center;gap:.5rem;padding:0 1.5rem}
 .nav-bar__left{display:flex;align-items:center;gap:.5rem;flex:1;min-width:0;overflow:hidden}
@@ -1902,7 +1869,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 .nav-contact-link{font-size:.92rem;font-weight:500;color:rgba(255,255,255,.85);padding:.55rem .85rem;border-radius:var(--r-pill);transition:.2s var(--ease);white-space:nowrap}
 .nav-contact-link:hover{background:rgba(255,255,255,.1);color:#fff}
 
-/* Solid state â€” same layout but white background pill */
+/* Solid state — same layout but white background pill */
 .site-header--solid .nav-bar--tripart{padding:0 .6rem}
 
 /* On desktop: hide hamburger, show nav */
@@ -1922,10 +1889,10 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 }
 
 /* ==========================================================================
-   OPTION C NAV â€” Transparent on hero, solid pill on scroll
+   OPTION C NAV — Transparent on hero, solid pill on scroll
    ========================================================================== */
 
-/* Transparent state (default â€” over hero) */
+/* Transparent state (default — over hero) */
 .site-header--transparent .nav-bar--tripart{
   background:transparent;
   border:none;
@@ -1974,7 +1941,7 @@ body.page-template-custom-get-involved .page-hero--image{padding-bottom:clamp(8r
 .site-header--solid .nav-sub .nav-item>a{color:var(--c-ink)}
 .site-header--solid .nav-sub .nav-item>a:hover{background:var(--c-soft)}
 
-/* Inner pages â€” always show solid pill immediately (no hero photo) */
+/* Inner pages — always show solid pill immediately (no hero photo) */
 body:not(.is-home) .site-header{padding:.6rem 4%}
 body:not(.is-home) .site-header--transparent .nav-bar--tripart{
   background:rgba(255,255,255,.94);
@@ -2003,7 +1970,7 @@ body:not(.is-home) .site-header--transparent .nav-sub .nav-item>a:hover{backgrou
 .site-header--solid .nav-bar--tripart,.body:not(.is-home) .nav-bar--tripart{max-width:none}
 
 /* ==========================================================================
-   DONATE PAGE â€” Masonry hero redesign
+   DONATE PAGE — Masonry hero redesign
    ========================================================================== */
 .donate-grid-band{padding:3rem 0 0}
 .donate-grid-band .img-grid-container{
@@ -2024,7 +1991,7 @@ body:not(.is-home) .site-header--transparent .nav-sub .nav-item>a:hover{backgrou
   transition:.3s var(--ease)
 }
 .donate-grid-band .img-box:hover{transform:scale(1.02);box-shadow:var(--sh-2)}
-/* Masonry offsets â€” odd images taller */
+/* Masonry offsets — odd images taller */
 .donate-grid-band .img-box:nth-child(1){grid-row:span 2;border-radius:var(--r-lg) var(--r-lg) var(--r-lg) 80px}
 .donate-grid-band .img-box:nth-child(4){grid-row:span 2;border-radius:var(--r-lg) var(--r-lg) 80px var(--r-lg)}
 .donate-grid-band .img-box:nth-child(2){transform:translateY(1.5rem)}
@@ -2072,13 +2039,13 @@ body:not(.is-home) .site-header--transparent .nav-sub .nav-item>a:hover{backgrou
 }
 
 /* ==========================================================================
-   PLACEHOLDER STYLES â€” shown until real images are uploaded via Ghost Admin
+   PLACEHOLDER STYLES — shown until real images are uploaded via Ghost Admin
    ========================================================================== */
 .img-ph{display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:.05em;text-transform:uppercase}
 .gallery-card--ph{width:300px;height:380px}
 
 /* ==========================================================================
-   CONSISTENCY PASS â€” uniform spacing, page hero, section rhythm
+   CONSISTENCY PASS — uniform spacing, page hero, section rhythm
    Ensures every page feels like the same site.
    ========================================================================== */
 
@@ -2086,13 +2053,13 @@ body:not(.is-home) .site-header--transparent .nav-sub .nav-item>a:hover{backgrou
 .page-hero{padding:calc(70px + 4.5rem) 0 3.5rem}
 .page-hero--image{padding:calc(70px + 5.5rem) 0 4rem}
 
-/* About page hero uses ab-hero class â€” align with page-hero */
+/* About page hero uses ab-hero class — align with page-hero */
 .ab-hero{padding:calc(70px + 5.5rem) 0 4rem}
 
-/* Programme hero â€” enough room for the Enquire button */
+/* Programme hero — enough room for the Enquire button */
 .page-hero--prog{padding:calc(70px + 5rem) 0 3rem}
 
-/* Consistent section alternation: white â†’ soft â†’ white â†’ soft */
+/* Consistent section alternation: white → soft → white → soft */
 .section + .section{background:#fff}
 .section.bg-soft + .section{background:var(--c-soft)}
 
@@ -2113,7 +2080,7 @@ body:not(.is-home) .site-header--transparent .nav-sub .nav-item>a:hover{backgrou
 .bank-card,.contact__card,.act-card,.event-card,.nl-card,
 .post-card,.quote-card,.value-card{border-radius:var(--r-md)}
 
-/* Consistent section separator â€” alternating bg sections get a subtle top border */
+/* Consistent section separator — alternating bg sections get a subtle top border */
 .section.bg-soft{border-top:1px solid var(--c-line)}
 .section.bg-soft + .section.bg-soft{border-top:none}
 
@@ -2174,7 +2141,7 @@ body:not(.is-home) .site-header--transparent .nav-sub .nav-item>a:hover{backgrou
 .donate-stats-banner__inner{transform:none;margin-top:0}
 
 /* ---- Nav dropdown: JS-only, no CSS hover (prevents expand-on-click) ---- */
-/* Remove CSS :hover trigger â€” dropdowns controlled exclusively by .js-open */
+/* Remove CSS :hover trigger — dropdowns controlled exclusively by .js-open */
 .nav-build .has-sub>.nav-sub{opacity:0;visibility:hidden;transform:translateY(8px)}
 .nav-build .has-sub.js-open>.nav-sub{opacity:1 !important;visibility:visible !important;transform:none !important}
 .nav-build .has-sub.js-open>.a .caret,.nav-build .has-sub.js-open>a .caret{transform:rotate(225deg) !important;margin-top:2px !important}
@@ -2189,9 +2156,7 @@ body:not(.is-home) .site-header--transparent .nav-sub .nav-item>a:hover{backgrou
   .page-hero--prog{padding:calc(60px + 3.5rem) 0 2.5rem}
 }
 
-/* ==========================================================================
-   MMM NAVIGATION v4 â€” complete rewrite, clean slate
-   ========================================================================== */
+
 .mmm-header{
   position:fixed;top:0;left:0;right:0;z-index:1000;
   transition:background .35s ease,box-shadow .35s ease,padding .35s ease;
@@ -2400,12 +2365,12 @@ body:not(.is-home) .mmm-header{
 }
 
 /* ==========================================================================
-   MMM NAV â€” item link selectors for Ghost-rendered .nav-item class
+   MMM NAV — item link selectors for Ghost-rendered .nav-item class
    ========================================================================== */
 #mmm-nav-links > .nav-item,
 .mmm-nav__links-wrap .nav > .nav-item{position:relative}
 
-/* Transparent hero state â€” white text */
+/* Transparent hero state — white text */
 .is-home .mmm-header:not(.mmm-header--scrolled) #mmm-nav-links > .nav-item > a,
 .is-home .mmm-header:not(.mmm-header--scrolled) .mmm-nav__links-wrap .nav > .nav-item > a{
   color:rgba(255,255,255,.92);
@@ -2416,7 +2381,7 @@ body:not(.is-home) .mmm-header{
   background:rgba(255,255,255,.15);color:#fff;text-shadow:none;
 }
 
-/* Solid/inner-page state â€” dark text */
+/* Solid/inner-page state — dark text */
 .mmm-header--scrolled #mmm-nav-links > .nav-item > a,
 .mmm-header--scrolled .mmm-nav__links-wrap .nav > .nav-item > a,
 body:not(.is-home) #mmm-nav-links > .nav-item > a,
@@ -2428,7 +2393,7 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a:hover{
   background:var(--c-soft);color:var(--c-primary);
 }
 
-/* Mobile breakpoint â€” show burger, hide links */
+/* Mobile breakpoint — show burger, hide links */
 @media(max-width:768px){
   .mmm-nav__links-wrap{display:none !important}
   .mmm-nav__donate{display:none !important}
@@ -2440,11 +2405,6 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a:hover{
   .mmm-nav__donate{display:inline-flex !important}
 }
 
-
-
-/* ==========================================================================
-   MMM NAV — CRITICAL FIXES
-   ========================================================================== */
 
 /* Ensure nested children are hidden from the flat list until JS runs */
 .mmm-drop{
@@ -2498,11 +2458,7 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a:hover{
 #mmm-nav-links > .nav-item,
 .mmm-nav__links-wrap .nav > .nav-item{position:relative}
 
-/* ==========================================================================
-   MMM DROPDOWN — DEFINITIVE FINAL OVERRIDE
-   Ensures dropdown is truly hidden (display:none) by default,
-   and shown as a floating absolute panel on .open.
-   ========================================================================== */
+
 .mmm-drop{
   display:none !important;
   position:absolute !important;
@@ -2546,24 +2502,24 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a:hover{
 }
 
 /* ==========================================================================
-   MMM NAV — hide child items from flat top-level list after JS nests them
+   MMM NAV � hide child items from flat top-level list after JS nests them
    ========================================================================== */
-/* Before JS runs — hide dash-labeled items using attribute selector */
+/* Before JS runs � hide dash-labeled items using attribute selector */
 #mmm-nav-links > .nav-item[data-label^="- "],
 .mmm-nav__links-wrap .nav > .nav-item[data-label^="- "]{
   display:none !important;
 }
-/* After JS marks them — also hide via .mmm-child class */
+/* After JS marks them � also hide via .mmm-child class */
 .nav-item.mmm-child{display:none !important}
 
-/* When they're inside .mmm-drop — show them */
+/* When they're inside .mmm-drop � show them */
 .mmm-drop > .nav-item,
 .mmm-drop > .nav-item.mmm-child{
   display:block !important;
 }
 
 /* ==========================================================================
-   MMM NAV — final layout + Donate removal + pill wrap
+   MMM NAV � final layout + Donate removal + pill wrap
    ========================================================================== */
 
 /* Nav bar: pill shape, wraps content, centered, not full-width */
@@ -2599,7 +2555,7 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a:hover{
   box-shadow:none;
 }
 
-/* Remove Donate from the nav link list — JS may be slow, CSS hides it immediately */
+/* Remove Donate from the nav link list � JS may be slow, CSS hides it immediately */
 #mmm-nav-links > .nav-item[data-label="Donate"],
 .mmm-nav__links-wrap .nav > .nav-item.nav-donate,
 .mmm-nav__links-wrap .nav > .nav-item:last-of-type[data-label="Donate"]{
@@ -2625,7 +2581,7 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a:hover{
   white-space:nowrap;flex-shrink:0;
 }
 
-/* Inner page — always solid pill */
+/* Inner page � always solid pill */
 body:not(.is-home) .mmm-nav{
   background:rgba(255,255,255,.96) !important;
   border-color:rgba(255,255,255,.8) !important;
@@ -2637,11 +2593,6 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a{
   text-shadow:none !important;
 }
 
-/* ==========================================================================
-   MMM NAV v5 — DEFINITIVE CLEAN REWRITE
-   New class names only: .mmm-header, .mmm-nav, .mmm-nav__left,
-   .mmm-nav__logo, .mmm-nav__right, .mmm-donate-btn, .mmm-burger
-   ========================================================================== */
 
 /* Header wrapper: full-width fixed, padding for pill centering */
 .mmm-header{
@@ -2685,7 +2636,7 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a{
   overflow:visible;
 }
 
-/* Ghost renders <ul class="nav"> — style it */
+/* Ghost renders <ul class="nav"> � style it */
 .mmm-nav__left .nav{
   display:flex;
   align-items:center;
@@ -2718,11 +2669,11 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a{
   background:rgba(255,255,255,.15);color:#fff;
 }
 
-/* Donate item inside nav — always hide (shown as dedicated button) */
+/* Donate item inside nav � always hide (shown as dedicated button) */
 .mmm-nav__left .nav > .nav-item.nav-donate,
 .mmm-nav__left .nav > .nav-item[data-label="Donate"]{display:none !important}
 
-/* Dash-prefixed child items — hide from flat list */
+/* Dash-prefixed child items � hide from flat list */
 .mmm-nav__left .nav > .nav-item[data-label^="- "]{display:none !important}
 .mmm-nav__left .nav > .nav-item.mmm-child{display:none !important}
 
@@ -2858,9 +2809,7 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a{
   .mmm-donate-btn{display:inline-flex !important}
 }
 
-/* ==========================================================================
-   MMM NAV v5.1 — fix tripart spacing and logo visibility
-   ========================================================================== */
+
 .mmm-nav{
   grid-template-columns:auto auto auto !important;
   gap:.5rem !important;
@@ -2881,9 +2830,6 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a{
 }
 .mmm-nav__right{flex:0 0 auto}
 
-/* ==========================================================================
-   MMM NAV v5.2 — remove empty center/right ghost boxes
-   ========================================================================== */
 
 /* When logo img fails to load or is missing, collapse the center */
 .mmm-nav__logo:empty,
@@ -2899,3 +2845,13 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a{
 .mmm-nav__left{flex:1;min-width:0}
 .mmm-nav__logo{flex-shrink:0;padding:0 .5rem}
 .mmm-nav__right{flex-shrink:0;display:flex;align-items:center;gap:.4rem}
+
+/* ==========================================================================
+   MMM NAV v5.3 � remove white background from header wrapper
+   The .mmm-header must be transparent; only .mmm-nav pill has a background
+   ========================================================================== */
+.mmm-header{
+  background:transparent !important;
+  box-shadow:none !important;
+  border:none !important;
+}

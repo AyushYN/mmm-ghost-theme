@@ -1,13 +1,4 @@
 {{!< default}}
-{{!--
-  custom-awards.hbs
-  Awards = posts tagged "awards".
-    Title        = award name
-    Feature image = photo of the certificate / trophy / plaque
-    Excerpt      = short detail line
-    Publish date = award year (used for the year badge)
-  Cards display in a horizontal slider with prev/next dots.
---}}
 {{#page}}
 <header class="page-hero page-hero--image">
     {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl"}}')"></div>{{else}}<div class="page-hero__bg page-hero__bg--grad"></div>{{/if}}
@@ -21,9 +12,7 @@
 
 {{#if content}}<section class="section"><div class="container container--narrow"><div class="prose gh-content reveal">{{content}}</div></div></section>{{/if}}
 
-{{!-- Awards slider — CMS-driven: page slug "our-awards".
-     Admin edits Ghost Admin → Pages → Awards Content.
-     Format the body as: Year in bold, award name as heading, description as paragraph. --}}
+{{!-- Awards: page slug "our-awards" — Title = page title, Body = award entries --}}
 {{#get "pages" slug="our-awards" as |aw|}}
     {{#if aw}}
     {{#foreach aw}}

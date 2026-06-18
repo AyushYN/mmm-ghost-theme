@@ -1,7 +1,7 @@
 {
-  "name": "mmm-theme",
+  "name": "mmm-ghost-theme",
   "description": "Custom Ghost theme for Morigaon Mahila Mehfil (MMM) NGO",
-  "version": "3.0.0",
+  "version": "1.0.0",
   "engines": {
     "ghost": ">=6.0.0"
   },
@@ -44,7 +44,6 @@
       "contact_address_main": { "type": "text", "default": "Morigaon Civil Hospital Road, Ward No. 7, PO: Morigaon, Dist. Morigaon, Assam - 782105" },
       "contact_map_embed_url": { "type": "text", "default": "" },
 
-      "donate_upi_id": { "type": "text", "default": "" },
       "donate_cta_url": { "type": "text", "default": "/donate/" },
 
       "facebook_url": { "type": "text", "default": "" },

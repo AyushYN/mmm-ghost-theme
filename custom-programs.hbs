@@ -1,4 +1,4 @@
-{{!< default}}
+﻿{{!< default}}
 {{#page}}
 <header class="page-hero page-hero--image">
     {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl"}}')"></div>{{else}}<div class="page-hero__bg page-hero__bg--grad"></div>{{/if}}
@@ -12,7 +12,7 @@
 
 {{#if content}}<section class="section"><div class="container container--narrow"><div class="prose gh-content reveal">{{content}}</div></div></section>{{/if}}
 
-{{!-- Programme editorial rows — fully CMS-driven: posts tagged "home-programs".
+{{!-- Programme editorial rows â€” fully CMS-driven: posts tagged "home-programs".
      Title = programme name, Primary tag = overline label, Excerpt = description,
      Feature image = media, og_title (Facebook title) = link. Hides when no posts. --}}
 {{#get "posts" filter="tag:home-programs" limit="12" order="published_at asc" as |programs|}}
@@ -42,11 +42,11 @@
     {{/if}}
 {{/get}}
 
-{{!-- PROCESS TIMELINE — CMS-driven: posts tagged "hash-process".
+{{!-- PROCESS TIMELINE â€” CMS-driven: posts tagged "hash-process".
      Title = step name, Post body = step description, Primary tag = step category label.
      Add posts tagged #process in Ghost Admin to populate this section.
-     Publish in order — publish date controls display order. --}}
-{{#get "posts" filter="tag:hash-process" order="published_at asc" limit="all" as |steps|}}
+     Publish in order â€” publish date controls display order. --}}
+{{#get "posts" filter="tag:hash-process" order="published_at asc" limit="20" as |steps|}}
     {{#if steps}}
     <section class="process-timeline-section dark-mode">
         <div class="container">
@@ -72,3 +72,4 @@
 {{/get}}
 {{> "cta"}}
 {{/page}}
+

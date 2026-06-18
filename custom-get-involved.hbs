@@ -10,10 +10,9 @@
 </header>
 {{#if content}}<section class="section"><div class="container container--narrow"><div class="prose gh-content reveal">{{content}}</div></div></section>{{/if}}
 
-{{!-- Get Involved cards — CMS-driven via tag:get-involved posts.
-     Card styles (light/navy/dark) applied via CSS nth-child on .involve-block.
-     Post 1 = light, Post 2 = navy, Post 3 = dark with feature image background.
-     To update: Ghost Admin → Posts → filter by get-involved tag. --}}
+{{!-- Get Involved cards: posts tagged "get-involved".
+     Post 1 = light card, Post 2 = navy card, Post 3 = dark card.
+     Title = heading, Excerpt = description, Facebook title = button link. --}}
 <section class="involve-section">
     <div class="container">
         {{#get "posts" filter="tag:get-involved" limit="3" order="published_at asc" as |ways|}}

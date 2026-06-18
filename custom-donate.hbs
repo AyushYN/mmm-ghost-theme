@@ -88,8 +88,7 @@
         </div>
         <aside class="donate__side reveal reveal--d1">
             {{#if feature_image}}<div class="donate__qr"><img src="{{img_url feature_image size="m"}}" alt="Donation QR code"></div>{{/if}}
-            {{!-- "What your gift funds" — CMS-driven: page slug "our-donate-tiers".
-                 Admin edits Ghost Admin → Pages → Donate Tiers. --}}
+            {{!-- Gift tiers: page slug "our-donate-tiers" — edit in Ghost Admin → Pages --}}
             {{#get "pages" slug="our-donate-tiers" as |tiers|}}
                 {{#if tiers}}
                 {{#foreach tiers}}

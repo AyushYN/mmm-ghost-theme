@@ -1,5 +1,5 @@
-﻿/* ==========================================================================
-   Morigaon Mahila Mehfil - main.js (theme v4)
+/* ==========================================================================
+   Morigaon Mahila Mehfil - main.js (theme current)
    ========================================================================== */
 (function () {
   'use strict';
@@ -37,14 +37,14 @@
         var a = li.querySelector('a');
         if (!a) return;
 
-        /* Remove Donate — shown as dedicated button */
+        /* Remove Donate � shown as dedicated button */
         if (label.toLowerCase() === 'donate') {
           li.remove();
           return;
         }
 
         if (DASH.test(label)) {
-          /* Child item — strip dash, nest under last parent */
+          /* Child item � strip dash, nest under last parent */
           a.textContent = label.replace(DASH, '').trim();
           if (lastParent) {
             var drop = lastParent.querySelector('.mmm-drop');
@@ -165,18 +165,13 @@
     show(0); play();
   })();
 
-  /* ---- CMS INJECTION FUNCTIONS ----
-     Content sections (ribbon, about points, impact, vmg, about stats, values) are now
-     rendered server-side directly from Ghost posts in the templates â€” no JS injection
-     needed. Only the legal-badges splitter remains (it reads the footer_reg_line setting). ---- */
-
-  /* CMS: Legal badges â€” splits footer_reg_line custom field by Â· */
+  /* CMS: Legal badges — splits footer_reg_line custom field by · */
   (function legalBadges(){
     var el = document.querySelector('.legal-badges[data-badges]');
     if (!el) return;
     var raw = (el.getAttribute('data-badges') || '').trim();
     if (!raw) return;
-    el.innerHTML = raw.split('Â·').filter(function(b){ return b.trim(); }).map(function(b){
+    el.innerHTML = raw.split('·').filter(function(b){ return b.trim(); }).map(function(b){
       return '<span>' + b.trim() + '</span>';
     }).join('');
   })();
@@ -609,7 +604,7 @@
     form.addEventListener('submit', function(e){ e.preventDefault(); if(note){ note.hidden = false; } form.reset(); });
   })();
 
-  /* ---- 16. Awards slider (preserved) ---- */
+  /* ---- 16. Awards slider ---- */
   (function awSlider(){
     var track = document.getElementById('awTrack');
     var dotsWrap = document.getElementById('awDots');
@@ -638,7 +633,7 @@
     dots.forEach(function(d, i){ d.addEventListener('click', function(){ go(i); }); });
   })();
 
-  /* ---- 17. Community gallery â€” scattered stacked carousel (About + Donate pages) ---- */
+  /* ---- 17. Community gallery — scattered stacked carousel (About + Donate pages) ---- */
   function initCarousel(trackId) {
     var track = document.getElementById(trackId);
     if (!track) return;
