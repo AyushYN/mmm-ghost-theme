@@ -1,0 +1,40 @@
+{{!< default}}
+{{#page}}
+<header class="page-hero page-hero--image">
+    <div class="page-hero__bg page-hero__bg--grad"></div><span class="page-hero__scrim"></span>
+    <div class="container page-hero__inner">
+        <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> {{title}}</nav>
+        <h1>{{title}}</h1>
+        {{#if custom_excerpt}}<p class="page-hero__sub">{{custom_excerpt}}</p>{{else}}<p class="page-hero__sub">There are many ways to be part of restoring lives and empowering communities.</p>{{/if}}
+    </div>
+</header>
+{{#if content}}<section class="section"><div class="container container--narrow"><div class="prose gh-content reveal">{{content}}</div></div></section>{{/if}}
+
+{{!-- Get Involved cards — CMS-driven via tag:get-involved posts.
+     Card styles (light/navy/dark) applied via CSS nth-child on .involve-block.
+     Post 1 = light, Post 2 = navy, Post 3 = dark with feature image background.
+     To update: Ghost Admin → Posts → filter by get-involved tag. --}}
+<section class="involve-section">
+    <div class="container">
+        {{#get "posts" filter="tag:get-involved" limit="3" order="published_at asc" as |ways|}}
+            {{#if ways}}
+            <div class="involve-banner reveal">
+                {{#foreach ways}}
+                <article class="involve-block"{{#if feature_image}} style="background-image:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.62)),url('{{img_url feature_image size="l"}}')"{{/if}}>
+                    <span class="involve-block__ico">
+                        {{#if @first}}<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M9 11a3 3 0 100-6 3 3 0 000 6Zm-6 9v-1c0-2.5 2.7-4 6-4 1 0 2 .15 2.9.4M15.5 12.5c1-1 2.6-.3 2.6 1 0 1.1-1.6 2.4-2.6 3.3-1-.9-2.6-2.2-2.6-3.3 0-1.3 1.6-2 2.6-1Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>{{/if}}
+                        {{#unless @first}}{{#unless @last}}{{> "icon-heart"}}{{/unless}}{{/unless}}
+                        {{#if @last}}<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M10 13a5 5 0 007 0l2-2a5 5 0 00-7-7l-1 1M14 11a5 5 0 00-7 0l-2 2a5 5 0 007 7l1-1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>{{/if}}
+                    </span>
+                    <h3>{{title}}</h3>
+                    <p>{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt words="24"}}{{/if}}</p>
+                    <a href="{{#if og_title}}{{og_title}}{{else}}/contact/{{/if}}" class="link-arrow">Learn more {{> "icon-arrow"}}</a>
+                </article>
+                {{/foreach}}
+            </div>
+            {{/if}}
+        {{/get}}
+    </div>
+</section>
+{{> "cta"}}
+{{/page}}

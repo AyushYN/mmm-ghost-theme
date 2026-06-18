@@ -1,0 +1,47 @@
+{{!< default}}
+{{#page}}
+<header class="page-hero page-hero--image">
+    {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl"}}')"></div>{{else}}<div class="page-hero__bg page-hero__bg--grad"></div>{{/if}}
+    <span class="page-hero__scrim"></span>
+    <div class="container page-hero__inner">
+        <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> {{title}}</nav>
+        <h1>{{title}}</h1>
+        {{#if custom_excerpt}}<p class="page-hero__sub">{{custom_excerpt}}</p>{{else}}<p class="page-hero__sub">We would love to hear from you. Reach out to our office in Morigaon, Assam.</p>{{/if}}
+    </div>
+</header>
+
+<section class="section">
+    <div class="container contact__grid">
+        <div class="contact__info reveal">
+            {{#if content}}<div class="prose gh-content">{{content}}</div>{{/if}}
+            <div class="contact__cards">
+                {{#if @custom.contact_address_main}}<div class="contact__card"><span class="contact__ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></span><div><h4>Visit Us</h4><p>{{@custom.contact_address_main}}</p></div></div>{{/if}}
+                {{#if @custom.contact_phone}}<div class="contact__card"><span class="contact__ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2 1c1 2 2.5 3.5 4.5 4.5l1-2 5 2v3c0 1-1 2-2 2A16 16 0 013 6c0-1 1-2 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><div><h4>Call Us</h4><p><a href="tel:{{@custom.contact_phone}}">{{@custom.contact_phone}}</a></p></div></div>{{/if}}
+                {{#if @custom.contact_email}}<div class="contact__card"><span class="contact__ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.6"/></svg></span><div><h4>Email Us</h4><p><a href="mailto:{{@custom.contact_email}}">{{@custom.contact_email}}</a></p></div></div>{{/if}}
+            </div>
+            {{#if @custom.facebook_url}}{{#if @custom.youtube_url}}{{else}}{{/if}}{{/if}}
+            <div class="contact__social">
+                {{#if @custom.facebook_url}}<a href="{{@custom.facebook_url}}" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v2H7v4h3v7h4v-7h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg></a>{{/if}}
+                {{#if @custom.youtube_url}}<a href="{{@custom.youtube_url}}" target="_blank" rel="noopener" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.5-.5-5c-.3-1-1-1.7-2-2C18.5 4.5 12 4.5 12 4.5s-6.5 0-8.5.5c-1 .3-1.7 1-2 2C1 9 1 12 1 12s0 3.5.5 5c.3 1 1 1.7 2 2 2 .5 8.5.5 8.5.5s6.5 0 8.5-.5c1-.3 1.7-1 2-2 .5-1.5.5-5 .5-5zM10 15.5v-7l6 3.5-6 3.5z"/></svg></a>{{/if}}
+                {{#if @custom.instagram_url}}<a href="{{@custom.instagram_url}}" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>{{/if}}
+                {{#if @custom.whatsapp_number}}<a href="https://wa.me/{{@custom.whatsapp_number}}" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 5-1.3A10 10 0 1012 2z"/></svg></a>{{/if}}
+            </div>
+        </div>
+
+        <form class="contact__form reveal reveal--d1" id="contactForm" novalidate>
+            <h3>Send us a message</h3>
+            <label>Your name<input type="text" name="name" id="cfName" required pattern="[A-Za-z\s.]+" placeholder="Full name"></label>
+            <label>Phone<div class="phone-row"><span class="cc">+91</span><input type="tel" name="phone" id="cfPhone" inputmode="numeric" placeholder="Mobile number"></div></label>
+            <label>Email<input type="email" name="email" placeholder="you@example.com"></label>
+            <label>Message<textarea name="message" rows="4" placeholder="How can we help?"></textarea></label>
+            <button type="submit" class="btn btn--accent btn--lg">Send Message {{> "icon-arrow"}}</button>
+            <p class="contact__note" id="cfNote" hidden>Thank you - your message has been noted. We will get back to you soon.</p>
+        </form>
+    </div>
+</section>
+
+{{#if @custom.contact_map_embed_url}}
+<section class="section flush-top"><div class="container"><div class="contact__map reveal"><iframe src="{{@custom.contact_map_embed_url}}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map" allowfullscreen></iframe></div></div></section>
+{{/if}}
+{{> "cta"}}
+{{/page}}

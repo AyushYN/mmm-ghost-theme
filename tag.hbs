@@ -1,0 +1,20 @@
+{{!< default}}
+{{#tag}}
+<header class="page-hero{{#if feature_image}} page-hero--image{{/if}}">
+    {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl"}}')"></div><span class="page-hero__scrim"></span>{{else}}<div class="page-hero__bg page-hero__bg--grad" aria-hidden="true"></div><span class="page-hero__scrim"></span>{{/if}}
+    <div class="container page-hero__inner">
+        <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> Tag</nav>
+        <h1>{{name}}</h1>
+        {{#if description}}<p class="page-hero__sub">{{description}}</p>{{/if}}
+    </div>
+</header>
+{{/tag}}
+
+<section class="section">
+    <div class="container">
+        <div class="grid grid-3">
+            {{#foreach posts}}{{> "post-card"}}{{/foreach}}
+        </div>
+        <nav class="pagination-wrap">{{pagination}}</nav>
+    </div>
+</section>

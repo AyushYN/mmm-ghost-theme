@@ -1,0 +1,21 @@
+{{!--
+  Primary navigation — server-side dropdown building.
+
+  Ghost Admin setup:
+    - Top-level items: Home, About, Programs, Impact, More, Donate
+    - Child items (shown as dropdown under previous parent): prefix label with "- "
+      e.g. "- Adoption Agency" becomes a child of Programs
+
+  This partial builds the dropdown structure in Handlebars so it never
+  depends on JS timing. JS only handles open/close behaviour.
+--}}
+<ul class="nav" id="primaryNavList">
+    {{#foreach navigation}}
+    {{!-- Detect if this label starts with a dash (child item) --}}
+    {{#if label}}
+    <li class="nav-item nav-{{slug}}{{#if current}} is-current{{/if}}" data-label="{{label}}">
+        <a href="{{url absolute="true"}}">{{label}}</a>
+    </li>
+    {{/if}}
+    {{/foreach}}
+</ul>

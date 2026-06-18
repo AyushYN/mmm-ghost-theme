@@ -1,0 +1,56 @@
+# Morigaon Mahila Mehfil - routes
+# Upload via Ghost Admin -> Settings -> Labs -> Upload routes file.
+
+routes:
+  /:
+    template: home
+
+  # Programme pages — each gets the custom-programme template
+  /saa/:
+    template: custom-programme
+    data: page.saa
+
+  /cmhp/:
+    template: custom-programme
+    data: page.cmhp
+
+  /jagaran/:
+    template: custom-programme
+    data: page.jagaran
+
+  /drr/:
+    template: custom-programme
+    data: page.drr
+
+  /sewa/:
+    template: custom-programme
+    data: page.sewa
+
+collections:
+  /events/:
+    permalink: /events/{slug}/
+    template: page
+    filter: tag:event
+    order: published_at desc
+
+  /newsletters/:
+    permalink: /newsletters/{slug}/
+    template: page
+    filter: tag:newsletter
+    order: published_at desc
+
+  /success-stories/:
+    permalink: /success-stories/{slug}/
+    template: post
+    filter: tag:success-stories
+    order: published_at desc
+
+  /news/:
+    permalink: /news/{slug}/
+    template: index
+    filter: tag:-hash-internal+tag:-event+tag:-newsletter+tag:-success-stories
+    order: published_at desc
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/

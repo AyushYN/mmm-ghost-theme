@@ -1,0 +1,66 @@
+{{!< default}}
+{{#page}}
+<header class="page-hero page-hero--image">
+    {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl"}}')"></div>{{else}}<div class="page-hero__bg page-hero__bg--grad"></div>{{/if}}
+    <span class="page-hero__scrim"></span>
+    <div class="container page-hero__inner">
+        <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> {{title}}</nav>
+        <h1>{{title}}</h1>
+        {{#if custom_excerpt}}<p class="page-hero__sub">{{custom_excerpt}}</p>{{else}}<p class="page-hero__sub">Four decades of measurable change for the women and children of Morigaon.</p>{{/if}}
+    </div>
+</header>
+
+{{!-- Impact counters — fully CMS-driven: posts tagged "impact-stats".
+     Title = number (e.g. 5,723 or 17,600+), Excerpt = label.
+     Reuses the same posts as the homepage impact section (homepage shows the
+     first 6; this page shows all). Section hides when no posts are tagged. --}}
+{{#get "posts" filter="tag:impact-stats" limit="12" order="published_at asc" as |impacts|}}
+    {{#if impacts}}
+    <section class="section">
+        <div class="container">
+            <div class="icount-grid reveal">
+                {{#foreach impacts}}
+                <div class="icount"><span class="icount__n" data-target="{{title}}">{{title}}</span><span class="icount__l">{{excerpt}}</span></div>
+                {{/foreach}}
+            </div>
+        </div>
+    </section>
+    {{/if}}
+{{/get}}
+
+{{!-- ===== Impact overview: layered media + text — CMS-driven: page "impact-overview" ===== --}}
+{{#get "pages" slug="impact-overview" as |impact|}}
+    {{#if impact}}
+    {{#foreach impact}}
+    <section class="section">
+        <div class="container impact-grid-section">
+            <div class="impact-media-column reveal">
+                <div class="offset-image-container">
+                    {{#if feature_image}}<img src="{{img_url feature_image size="l" format="webp"}}" class="img-primary" alt="{{title}}">{{else}}<div class="img-primary is-grad g-green"></div>{{/if}}
+                </div>
+            </div>
+            <div class="impact-content-column reveal reveal--d1">
+                <span class="kicker">Our Impact</span>
+                <h2>{{title}}</h2>
+                <div class="impact-text gh-content">{{content}}</div>
+            </div>
+        </div>
+    </section>
+    {{/foreach}}
+    {{/if}}
+{{/get}}
+
+{{#if content}}<section class="section bg-soft"><div class="container container--narrow"><div class="prose gh-content reveal">{{content}}</div></div></section>{{/if}}
+
+{{#get "posts" filter="tag:success-stories" limit="3" order="published_at desc" as |stories|}}
+    {{#if stories}}
+    <section class="section bg-soft">
+        <div class="container">
+            <div class="shead reveal"><div><span class="eyebrow">Behind the Numbers</span><h2>Lives transformed</h2></div><a href="/tag/success-stories/" class="btn btn--outline">All stories {{> "icon-arrow"}}</a></div>
+            <div class="grid grid-3">{{#foreach stories}}{{> "post-card"}}{{/foreach}}</div>
+        </div>
+    </section>
+    {{/if}}
+{{/get}}
+{{> "cta"}}
+{{/page}}

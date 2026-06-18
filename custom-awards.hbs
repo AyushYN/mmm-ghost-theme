@@ -1,0 +1,41 @@
+{{!< default}}
+{{!--
+  custom-awards.hbs
+  Awards = posts tagged "awards".
+    Title        = award name
+    Feature image = photo of the certificate / trophy / plaque
+    Excerpt      = short detail line
+    Publish date = award year (used for the year badge)
+  Cards display in a horizontal slider with prev/next dots.
+--}}
+{{#page}}
+<header class="page-hero page-hero--image">
+    {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl"}}')"></div>{{else}}<div class="page-hero__bg page-hero__bg--grad"></div>{{/if}}
+    <span class="page-hero__scrim"></span>
+    <div class="container page-hero__inner">
+        <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> {{title}}</nav>
+        <h1>{{title}}</h1>
+        {{#if custom_excerpt}}<p class="page-hero__sub">{{custom_excerpt}}</p>{{else}}<p class="page-hero__sub">Recognised for dedicated service to the women and children of Assam.</p>{{/if}}
+    </div>
+</header>
+
+{{#if content}}<section class="section"><div class="container container--narrow"><div class="prose gh-content reveal">{{content}}</div></div></section>{{/if}}
+
+{{!-- Awards slider — CMS-driven: page slug "our-awards".
+     Admin edits Ghost Admin → Pages → Awards Content.
+     Format the body as: Year in bold, award name as heading, description as paragraph. --}}
+{{#get "pages" slug="our-awards" as |aw|}}
+    {{#if aw}}
+    {{#foreach aw}}
+    <section class="section aw-section">
+        <div class="container">
+            <div class="shead-minimal reveal"><span class="shead-label">Recognition</span><h2>Awards &amp; Recognitions</h2></div>
+            <div class="prose gh-content reveal">{{content}}</div>
+        </div>
+    </section>
+    {{/foreach}}
+    {{/if}}
+{{/get}}
+
+{{> "cta"}}
+{{/page}}

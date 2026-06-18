@@ -1,0 +1,84 @@
+{{!< default}}
+{{!--
+  custom-events.hbs — Events page.
+  Events = posts tagged "event" (Title, Excerpt, Feature image, publish date = event date).
+  Sections hide automatically when no events exist.
+--}}
+{{#page}}
+<header class="page-hero page-hero--image">
+    <div class="page-hero__bg page-hero__bg--grad"></div>
+    <span class="page-hero__scrim"></span>
+    <div class="container page-hero__inner">
+        <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> {{title}}</nav>
+        <h1>{{title}}</h1>
+        {{#if custom_excerpt}}<p class="page-hero__sub">{{custom_excerpt}}</p>{{else}}<p class="page-hero__sub">Upcoming and recent events, observances and community gatherings by Morigaon Mahila Mehfil.</p>{{/if}}
+    </div>
+</header>
+
+{{#if content}}<section class="section"><div class="container container--narrow"><div class="prose gh-content reveal">{{content}}</div></div></section>{{/if}}
+
+{{!-- Upcoming events --}}
+{{#get "posts" filter="tag:event" limit="12" order="published_at asc" as |upcoming|}}
+    {{#if upcoming}}
+    <section class="section">
+        <div class="container">
+            <div class="shead-minimal reveal"><span class="shead-label">Mark Your Calendar</span><h2>Upcoming Events</h2></div>
+            <div class="event-grid">
+                {{#foreach upcoming}}
+                <article class="event-card reveal">
+                    <div class="event-card__media{{#unless feature_image}} is-grad{{/unless}}"{{#if feature_image}} style="background-image:url('{{img_url feature_image size="m"}}')"{{/if}}>
+                        <span class="event-card__date">{{date format="DD MMM"}}</span>
+                    </div>
+                    <div class="event-card__body">
+                        {{#primary_tag}}<span class="pill pill--soft">{{name}}</span>{{/primary_tag}}
+                        <h4>{{title}}</h4>
+                        <p>{{excerpt words="20"}}</p>
+                        <a href="{{url}}" class="link-arrow">View details {{> "icon-arrow"}}</a>
+                    </div>
+                </article>
+                {{/foreach}}
+            </div>
+        </div>
+    </section>
+    {{/if}}
+{{/get}}
+
+{{!-- Past events --}}
+{{#get "posts" filter="tag:event" limit="12" order="published_at desc" as |past|}}
+    {{#if past}}
+    <section class="section bg-soft">
+        <div class="container">
+            <div class="shead-minimal reveal"><span class="shead-label">Archive</span><h2>Past Events</h2></div>
+            <div class="event-grid">
+                {{#foreach past}}
+                <article class="event-card event-card--past reveal">
+                    <div class="event-card__media{{#unless feature_image}} is-grad{{/unless}}"{{#if feature_image}} style="background-image:url('{{img_url feature_image size="m"}}')"{{/if}}>
+                        <span class="event-card__date">{{date format="DD MMM YYYY"}}</span>
+                    </div>
+                    <div class="event-card__body">
+                        {{#primary_tag}}<span class="pill pill--soft">{{name}}</span>{{/primary_tag}}
+                        <h4>{{title}}</h4>
+                        <p>{{excerpt words="20"}}</p>
+                        <a href="{{url}}" class="link-arrow">View details {{> "icon-arrow"}}</a>
+                    </div>
+                </article>
+                {{/foreach}}
+            </div>
+        </div>
+    </section>
+    {{/if}}
+{{/get}}
+
+{{!-- Empty state --}}
+{{#get "posts" filter="tag:event" limit="1" as |check|}}
+    {{#unless check}}
+    <section class="section">
+        <div class="container">
+            <p class="empty-note">No events right now. Check back soon or <a href="/contact/">contact us</a> to enquire.</p>
+        </div>
+    </section>
+    {{/unless}}
+{{/get}}
+
+{{> "cta"}}
+{{/page}}

@@ -1,0 +1,28 @@
+{{!< default}}
+{{#page}}
+<header class="page-hero page-hero--image">
+    <div class="page-hero__bg page-hero__bg--grad"></div><span class="page-hero__scrim"></span>
+    <div class="container page-hero__inner">
+        <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> {{title}}</nav>
+        <h1>{{title}}</h1>
+        {{#if custom_excerpt}}<p class="page-hero__sub">{{custom_excerpt}}</p>{{else}}<p class="page-hero__sub">Fully registered and compliant - established 1979, registered under the Societies Act in 1980.</p>{{/if}}
+    </div>
+</header>
+{{#if content}}<section class="section"><div class="container container--narrow"><div class="prose gh-content reveal">{{content}}</div></div></section>{{/if}}
+<section class="section">
+    <div class="container">
+        <div class="shead-minimal reveal"><span class="shead-label">Transparency</span><h2>Registrations &amp; legal standing</h2></div>
+        <div class="reg-grid">
+        {{!-- Registrations — CMS-driven: page slug "our-legal".
+             Admin edits Ghost Admin → Pages → Legal Content. --}}
+        {{#get "pages" slug="our-legal" as |lg|}}
+            {{#if lg}}
+                {{#foreach lg}}<div class="prose gh-content reveal">{{content}}</div>{{/foreach}}
+            {{/if}}
+        {{/get}}
+        </div>
+        <p class="center muted">For verification of any registration, please <a href="/contact/">contact us</a>.</p>
+    </div>
+</section>
+{{> "cta"}}
+{{/page}}

@@ -1,0 +1,100 @@
+{{!< default}}
+{{!--
+  custom-programme.hbs — Individual programme page.
+  Routes: /saa/, /cmhp/, /jagaran/, /drr/, /sewa/
+  Data binding in routes.yaml passes page data into this template.
+  Dynamic feeds (all optional — sections hide when empty):
+    tag:{slug}-activities  → What We Do activity cards
+    tag:{slug}-stories     → Recent success stories
+    tag:{slug}-album       → Gallery
+--}}
+{{#page}}
+<header class="page-hero page-hero--image page-hero--prog">
+    {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl"}}')"></div>{{else}}<div class="page-hero__bg page-hero__bg--grad"></div>{{/if}}
+    <span class="page-hero__scrim"></span>
+    <div class="container page-hero__inner">
+        <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> <a href="/programs/">Programmes</a> <span>/</span> {{title}}</nav>
+        <h1>{{title}}</h1>
+        {{#if custom_excerpt}}<p class="page-hero__sub">{{custom_excerpt}}</p>{{/if}}
+        <a href="/contact/" class="btn btn--accent btn--lg prog-enquire-btn">Enquire / Get Support {{> "icon-arrow"}}</a>
+    </div>
+</header>
+
+{{!-- Page body: overview / about this programme --}}
+<section class="section">
+    <div class="container container--narrow">
+        <div class="prose gh-content reveal">{{content}}</div>
+    </div>
+</section>
+
+{{!-- What We Do — tag: {slug}-activities --}}
+{{#get "posts" filter="tag:{{slug}}-activities" limit="12" order="published_at asc" as |acts|}}
+    {{#if acts}}
+    <section class="section bg-soft">
+        <div class="container">
+            <div class="shead-minimal reveal"><span class="shead-label">Our Work</span><h2>What we do</h2></div>
+            <div class="act-grid">
+                {{#foreach acts}}
+                <article class="act-card reveal">
+                    {{#if feature_image}}<div class="act-card__img" style="background-image:url('{{img_url feature_image size="m"}}')"></div>{{/if}}
+                    <div class="act-card__body">
+                        <h4>{{title}}</h4>
+                        <p>{{excerpt words="28"}}</p>
+                    </div>
+                </article>
+                {{/foreach}}
+            </div>
+        </div>
+    </section>
+    {{/if}}
+{{/get}}
+
+{{!-- Programme impact numbers (baked per page body, editable) --}}
+{{!-- Programme Gallery — tag: {slug}-album (one post with Ghost Gallery card) --}}
+{{#get "posts" filter="tag:{{slug}}-album" limit="1" as |gal|}}
+    {{#if gal}}
+    <section class="section">
+        <div class="container">
+            <div class="shead-minimal reveal"><span class="shead-label">Gallery</span><h2>Glimpses from the programme</h2></div>
+            <div class="gallery reveal">
+                <div class="gallery__source">{{#foreach gal}}{{content}}{{/foreach}}</div>
+                <div class="gallery__bento" id="galleryBento"></div>
+            </div>
+        </div>
+    </section>
+    {{/if}}
+{{/get}}
+
+{{!-- Recent Stories — tag: {slug}-stories --}}
+{{#get "posts" filter="tag:{{slug}}-stories" limit="3" order="published_at desc" as |stories|}}
+    {{#if stories}}
+    <section class="section bg-soft">
+        <div class="container">
+            <div class="shead reveal">
+                <div><span class="eyebrow">Impact</span><h2>Stories from this programme</h2></div>
+                <a href="/tag/success-stories/" class="btn btn--outline">All stories {{> "icon-arrow"}}</a>
+            </div>
+            <div class="grid grid-3">{{#foreach stories}}{{> "post-card"}}{{/foreach}}</div>
+        </div>
+    </section>
+    {{/if}}
+{{/get}}
+
+{{!-- Enquiry CTA --}}
+<section class="section">
+    <div class="container">
+        <div class="enquire-band reveal">
+            <div>
+                <h3>Need support or want to refer someone?</h3>
+                <p>Reach our team directly — we respond to every enquiry.</p>
+            </div>
+            <div class="enquire-band__actions">
+                <a href="/contact/" class="btn btn--accent btn--lg">Contact Us {{> "icon-arrow"}}</a>
+                {{#if @custom.whatsapp_number}}<a href="https://wa.me/{{@custom.whatsapp_number}}" class="btn btn--outline btn--lg" target="_blank" rel="noopener">WhatsApp Us</a>{{/if}}
+            </div>
+        </div>
+    </div>
+</section>
+
+{{> "cta"}}
+{{/page}}

@@ -1,0 +1,56 @@
+{
+  "name": "mmm-theme",
+  "description": "Custom Ghost theme for Morigaon Mahila Mehfil (MMM) NGO",
+  "version": "3.0.0",
+  "engines": {
+    "ghost": ">=6.0.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Morigaon Mahila Mehfil",
+    "email": "mahilamehfil@yahoo.co.in"
+  },
+  "keywords": [
+    "ghost-theme",
+    "ngo"
+  ],
+  "config": {
+    "posts_per_page": 9,
+    "card_assets": true,
+    "image_sizes": {
+      "xxs": { "width": 30 },
+      "xs": { "width": 100 },
+      "s": { "width": 300 },
+      "m": { "width": 600 },
+      "l": { "width": 1000 },
+      "xl": { "width": 2000 }
+    },
+    "custom": {
+      "logo": { "type": "image", "description": "Logo for the navbar & footer (falls back to Settings -> General logo)" },
+      "hero_eyebrow": { "type": "text", "default": "Morigaon, Assam \u00b7 Serving Since 1979" },
+      "hero_headline": { "type": "text", "default": "Empowering communities, securing futures" },
+      "hero_subtext": { "type": "text", "default": "For over four decades, Morigaon Mahila Mehfil has stood beside the women and children of Assam - through health, education, livelihood, women's rights and disaster response." },
+
+      "about_image_1": { "type": "image", "description": "Home About collage - image 1 (tall, left)" },
+      "about_image_2": { "type": "image", "description": "Home About collage - image 2 (top right)" },
+      "about_image_3": { "type": "image", "description": "Home About collage - image 3 (bottom right)" },
+      "about_media_url": { "type": "text", "description": "About page media - paste a YouTube URL (shows as video) or an image URL" },
+
+      "footer_tagline": { "type": "text", "default": "Empowering the women and children of Morigaon, Assam with dignity, opportunity and hope since 1979." },
+      "footer_reg_line": { "type": "text", "default": "Reg. No-126 of 1980-81 (Societies Act XXI of 1860) \u00b7 12A \u00b7 80G \u00b7 FCRA" },
+
+      "contact_email": { "type": "text", "default": "mahilamehfil@yahoo.co.in" },
+      "contact_phone": { "type": "text", "default": "+91 94351 64216" },
+      "contact_address_main": { "type": "text", "default": "Morigaon Civil Hospital Road, Ward No. 7, PO: Morigaon, Dist. Morigaon, Assam - 782105" },
+      "contact_map_embed_url": { "type": "text", "default": "" },
+
+      "donate_upi_id": { "type": "text", "default": "" },
+      "donate_cta_url": { "type": "text", "default": "/donate/" },
+
+      "facebook_url": { "type": "text", "default": "" },
+      "youtube_url": { "type": "text", "default": "" },
+      "instagram_url": { "type": "text", "default": "" },
+      "whatsapp_number": { "type": "text", "default": "" }
+    }
+  }
+}

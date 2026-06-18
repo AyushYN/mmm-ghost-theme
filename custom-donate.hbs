@@ -1,0 +1,105 @@
+{{!< default}}
+{{#page}}
+<header class="page-hero page-hero--image">
+    {{#if feature_image}}<div class="page-hero__bg page-hero__bg--grad"></div>{{else}}<div class="page-hero__bg page-hero__bg--grad"></div>{{/if}}
+    <span class="page-hero__scrim"></span>
+    <div class="container page-hero__inner">
+        <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> {{title}}</nav>
+        <h1>{{title}}</h1>
+        {{#if custom_excerpt}}<p class="page-hero__sub">{{custom_excerpt}}</p>{{else}}<p class="page-hero__sub">Your generosity helps us stand beside the women and children of Assam.</p>{{/if}}
+    </div>
+</header>
+
+{{!-- ===== Donate image grid band — CMS-driven: posts with internal tag #donate-grid ===== --}}
+{{#get "posts" filter="tag:hash-donate-grid" limit="4" order="published_at asc" as |grid|}}
+<section class="donate-grid-band">
+    <div class="img-grid-container">
+        {{#if grid}}
+            {{#foreach grid}}
+            <div class="img-box{{#unless feature_image}} is-grad g-blue{{/unless}}"{{#if feature_image}} style="background-image:url('{{img_url feature_image size="l" format="webp"}}')"{{/if}} role="img" aria-label="{{title}}"></div>
+            {{/foreach}}
+        {{else}}
+            <div class="img-box img-ph is-grad g-blue"><span>Photo coming soon</span></div>
+            <div class="img-box img-ph is-grad g-green"><span>Photo coming soon</span></div>
+            <div class="img-box img-ph is-grad g-rust"><span>Photo coming soon</span></div>
+            <div class="img-box img-ph is-grad g-gold"><span>Photo coming soon</span></div>
+        {{/if}}
+    </div>
+</section>
+{{/get}}
+
+{{!-- ===== Overlapping stats banner — CMS-driven: posts with internal tag #stats ===== --}}
+{{#get "posts" filter="tag:hash-stats" limit="3" order="published_at asc" as |stats|}}
+<section class="donate-stats-banner">
+    <div class="container donate-stats-banner__inner">
+        {{#if stats}}
+            {{#foreach stats}}
+            <div class="stat-block">
+                <h3>{{title}}</h3>
+                <div class="stat-content gh-content">{{content}}</div>
+            </div>
+            {{/foreach}}
+        {{else}}
+            <div class="stat-block"><h3>45+</h3><div class="stat-content"><p>Years of service</p></div></div>
+            <div class="stat-block"><h3>5,723</h3><div class="stat-content"><p>Patients enrolled</p></div></div>
+            <div class="stat-block"><h3>138</h3><div class="stat-content"><p>Children cared for</p></div></div>
+        {{/if}}
+    </div>
+</section>
+{{/get}}
+
+{{!-- ===== Community Gallery Carousel — reuses #gallery posts ===== --}}
+<section class="section donate-gallery bg-soft">
+    <div class="container">
+        <div class="shead-minimal reveal">
+            <span class="shead-label">Gallery</span>
+            <h2>Moments from <strong>Our Community</strong></h2>
+            <p>Every photo is a life touched — see the difference your support makes.</p>
+        </div>
+        {{#get "posts" filter="tag:hash-gallery" limit="9" order="published_at desc" as |gallery|}}
+        <div class="gallery-carousel-wrapper reveal">
+            <button class="carousel-btn prev" type="button" aria-label="Previous photo">&#8249;</button>
+            <div class="carousel-track" id="donateCarousel">
+                {{#if gallery}}
+                    {{#foreach gallery}}
+                    <div class="gallery-card"><img src="{{img_url feature_image size="l" format="webp"}}" alt="{{title}}" loading="lazy"></div>
+                    {{/foreach}}
+                {{else}}
+                    <div class="gallery-card gallery-card--ph is-grad g-blue"></div>
+                    <div class="gallery-card gallery-card--ph is-grad g-green"></div>
+                    <div class="gallery-card gallery-card--ph is-grad g-rust"></div>
+                    <div class="gallery-card gallery-card--ph is-grad g-gold"></div>
+                    <div class="gallery-card gallery-card--ph is-grad g-blue"></div>
+                {{/if}}
+            </div>
+            <button class="carousel-btn next" type="button" aria-label="Next photo">&#8250;</button>
+        </div>
+        {{/get}}
+    </div>
+</section>
+
+<section class="section">
+    <div class="container donate__grid">
+        <div class="donate__main reveal">
+            {{!-- Bank/transfer details — edit via the Donate page body in Ghost Admin --}}
+            {{#if content}}<div class="prose gh-content donate__bank">{{content}}</div>{{/if}}
+            {{#if @custom.donate_upi_id}}<div class="bank-card"><h3>UPI</h3><p><b>UPI ID:</b> {{@custom.donate_upi_id}}</p></div>{{/if}}
+            <div class="tax-note"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>Donations are eligible for tax exemption under Section 80G.</p></div>
+        </div>
+        <aside class="donate__side reveal reveal--d1">
+            {{#if feature_image}}<div class="donate__qr"><img src="{{img_url feature_image size="m"}}" alt="Donation QR code"></div>{{/if}}
+            {{!-- "What your gift funds" — CMS-driven: page slug "our-donate-tiers".
+                 Admin edits Ghost Admin → Pages → Donate Tiers. --}}
+            {{#get "pages" slug="our-donate-tiers" as |tiers|}}
+                {{#if tiers}}
+                {{#foreach tiers}}
+                <div class="prose gh-content">{{content}}</div>
+                {{/foreach}}
+                {{/if}}
+            {{/get}}
+            {{#if @custom.donate_cta_url}}<a href="{{@custom.donate_cta_url}}" class="btn btn--accent btn--block btn--lg">Donate Online {{> "icon-arrow"}}</a>{{/if}}
+        </aside>
+    </div>
+</section>
+{{> "cta"}}
+{{/page}}

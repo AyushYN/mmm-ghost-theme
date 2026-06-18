@@ -1,0 +1,24 @@
+{{!< default}}
+<header class="page-hero page-hero--image">
+    <div class="page-hero__bg page-hero__bg--grad" aria-hidden="true"></div>
+    <span class="page-hero__scrim"></span>
+    <div class="container page-hero__inner">
+        <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> News</nav>
+        <h1>News &amp; Stories</h1>
+        <p class="page-hero__sub">Field notes, success stories and updates from across Morigaon and Nagaon.</p>
+    </div>
+</header>
+
+<section class="section">
+    <div class="container">
+        {{#if posts}}
+        <div class="grid grid-3">
+            {{#foreach posts}}{{> "post-card"}}{{/foreach}}
+        </div>
+        <nav class="pagination-wrap">{{pagination}}</nav>
+        {{else}}
+        <p class="empty-note">No stories have been published yet. Check back soon.</p>
+        {{/if}}
+    </div>
+</section>
+{{> "cta"}}

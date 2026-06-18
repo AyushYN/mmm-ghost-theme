@@ -1,0 +1,200 @@
+{{!< default}}
+{{!--
+  custom-about.hbs — editorial About page.
+  Uses: page feature image (hero), page body ({{content}} = Who We Are),
+  about collage images (custom settings), and tag:milestones for the timeline.
+  No new custom settings; nothing hardcoded that an admin can't reach.
+--}}
+{{#page}}
+
+{{!-- HERO --}}
+<header class="ab-hero">
+    {{#if feature_image}}<div class="ab-hero__bg" style="background-image:url('{{img_url feature_image size="xl"}}')"></div>{{else}}<div class="ab-hero__bg page-hero__bg--grad"></div>{{/if}}
+    <span class="ab-hero__scrim"></span>
+    <div class="container ab-hero__inner">
+        <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> {{title}}</nav>
+        <h1>{{title}}</h1>
+        {{#if custom_excerpt}}<p class="ab-hero__sub">{{custom_excerpt}}</p>{{else}}<p class="ab-hero__sub">An organisation of compassion and action, serving the women and children of Morigaon, Assam since 1979.</p>{{/if}}
+    </div>
+</header>
+
+{{!-- INTRO — editorial text split with media (Task 8) --}}
+<section class="section">
+    <div class="container">
+        <div class="about-split">
+            <div class="about-split__media reveal"
+                 data-media="{{@custom.about_media_url}}"
+                 data-fallback="{{#if @site.cover_image}}{{img_url @site.cover_image size="l"}}{{/if}}">
+                <div class="about-split__frame">
+                    {{!-- JS fills this: YouTube thumbnail or image --}}
+                </div>
+            </div>
+            <div class="about-split__body reveal">
+                <span class="eyebrow">Who We Are</span>
+                <h2>Four decades of standing beside the vulnerable</h2>
+                <div class="prose gh-content">{{content}}</div>
+                <div class="ab-intro__cta">
+                    <a href="/programs/" class="btn btn--accent">Our Programmes {{> "icon-arrow"}}</a>
+                    <a href="/impact/" class="btn btn--outline">See our Impact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{!-- MISSION BAND (dark, full-width) --}}
+<section class="ab-band">
+    <div class="container ab-band__grid">
+        <div class="ab-band__head reveal">
+            <span class="eyebrow eyebrow--light">What Drives Us</span>
+            <h2>Vision, mission &amp; the goals that guide every step</h2>
+        </div>
+        {{!-- Fully CMS-driven: posts tagged "vmg" — Title = heading, Excerpt = paragraph.
+             For the Goals post, add a bulleted list in the post body (it renders in place of the paragraph).
+             Icons are decorative, selected by position. Hides when no posts are tagged. --}}
+        {{#get "posts" filter="tag:vmg" limit="3" order="published_at asc" as |vmg|}}
+            {{#if vmg}}
+            <div class="ab-band__cards">
+                {{#foreach vmg}}
+                <article class="ab-bandcard reveal{{#match @number "2"}} reveal--d1{{/match}}{{#match @number "3"}} reveal--d2{{/match}}">
+                    <span class="ab-bandcard__ico">{{#match @number "1"}}<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>{{/match}}{{#match @number "2"}}<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg>{{/match}}{{#match @number "3"}}<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M10 6h10M10 12h10M10 18h10M4 6l1.2 1.2L7.5 5M4 12l1.2 1.2L7.5 11M4 18l1.2 1.2L7.5 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>{{/match}}</span>
+                    <h3>{{title}}</h3>
+                    {{#if content}}<div class="ab-bandcard__list gh-content">{{{content}}}</div>{{else}}<p>{{excerpt}}</p>{{/if}}
+                </article>
+                {{/foreach}}
+            </div>
+            {{/if}}
+        {{/get}}
+    </div>
+</section>
+
+{{!-- BY THE NUMBERS --}}
+<section class="section ab-stats">
+    <div class="container">
+        <div class="shead-minimal reveal"><span class="shead-label">By the Numbers</span><h2>Four decades, measurable change</h2></div>
+        {{!-- Fully CMS-driven: reuses the same tag:home-stats posts from the homepage ribbon.
+             Row hides automatically when no posts are tagged. --}}
+        {{#get "posts" filter="tag:home-stats" limit="4" order="published_at asc" as |stats|}}
+            {{#if stats}}
+            <div class="ab-stats__row reveal" id="abStatsRow">
+                {{#foreach stats}}
+                <div class="ab-stat"><span class="ab-stat__n" data-target="{{title}}">{{title}}</span><span class="ab-stat__l">{{excerpt}}</span></div>
+                {{/foreach}}
+            </div>
+            {{/if}}
+        {{/get}}
+    </div>
+</section>
+
+{{!-- CORE VALUES --}}
+<section class="section bg-soft">
+    <div class="container">
+        <div class="shead-minimal reveal"><span class="shead-label">What Guides Us</span><h2>Our Core Values</h2></div>
+        {{!-- Fully CMS-driven: posts tagged "our-values" — Title = value name, Excerpt = description.
+             Icons are decorative, selected by position. Grid hides when no posts are tagged. --}}
+        {{#get "posts" filter="tag:our-values" limit="6" order="published_at asc" as |values|}}
+            {{#if values}}
+            <div class="values-grid">
+                {{#foreach values}}
+                <div class="value-card reveal{{#match @number "2"}} reveal--d1{{/match}}{{#match @number "5"}} reveal--d1{{/match}}{{#match @number "3"}} reveal--d2{{/match}}{{#match @number "6"}} reveal--d2{{/match}}">
+                    <span class="value-card__ico">{{#match @number "1"}}<svg width="28" height="28" viewBox="150 130 900 620" fill="none"><path d="M661.268,610.321c-133.62-1.021-209.02-112.673-240.969-170.606c-31.945-58.001-59.178-51.952-53.384-74.014c9.4-35.841,87.396,30.086,123.026,71.736c35.61,41.621,86.846,69.318,155.625,71.954c-28.34-45.566-118.867-72.613-90.982-87.304c25.768-13.578,107.869,2.781,222.48,52.346c39.315,17.005,67.402,48.279,87.34,82.035C1160.486,221.024,836.382-47.426,600,151.327c-115.284-96.93-251.432-82.73-326.329-3.835c42.345,13.739,95.487,23.758,153.071,24.184c133.611,1.022,209.02,112.672,240.959,170.61c31.938,58.003,59.18,51.95,53.385,74.013c-9.4,35.84-87.389-30.088-123.025-71.736c-35.611-41.621-86.849-69.317-155.626-71.954c28.339,45.566,118.876,72.611,90.981,87.305c-25.755,13.583-107.856-2.774-222.48-52.346c-37.547-16.24-64.854-45.497-84.601-77.499C187.21,362.632,266.538,567.035,600,766.588c77.269-46.24,140.882-92.741,192.549-138.548C754.354,617.723,709.356,610.678,661.268,610.321z" fill="currentColor"/></svg>{{/match}}{{#match @number "2"}}<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.35-9.5-9C1 9 2.5 5 6 5c2 0 3.2 1.2 4 2.5C10.8 6.2 12 5 14 5c3.5 0 5 4 3.5 7C19 16.65 12 21 12 21z" stroke="currentColor" stroke-width="1.7"/><path d="M12 8v6M9 11h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>{{/match}}{{#match @number "3"}}<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>{{/match}}{{#match @number "4"}}<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z" stroke="currentColor" stroke-width="1.7"/></svg>{{/match}}{{#match @number "5"}}<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M5 7h14M7 7l-3 7h6l-3-7Zm10 0-3 7h6l-3-7ZM3 14a3 3 0 0 0 6 0M15 14a3 3 0 0 0 6 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>{{/match}}{{#match @number "6"}}<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 9-10 0 0 2 5-1 9M11 20c6 0 9-4 9-9-3 1-6 1-8 3M11 20v-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>{{/match}}</span>
+                    <h4>{{title}}</h4>
+                    <p>{{excerpt}}</p>
+                </div>
+                {{/foreach}}
+            </div>
+            {{/if}}
+        {{/get}}
+    </div>
+</section>
+
+{{!-- TIMELINE (tag:milestones — Title=year, Excerpt=description) --}}
+{{#get "posts" filter="tag:milestones" limit="60" order="published_at asc" as |ms|}}
+    {{#if ms}}
+    <section class="section">
+        <div class="container">
+            <div class="shead-minimal reveal"><span class="shead-label">Our Journey</span><h2>Milestones since 1979</h2></div>
+            <div class="timeline" id="mmmTimeline">
+                <div class="tl-track"><div class="tl-line"></div><div class="tl-progress" id="mmmTlProgress"></div></div>
+                <div class="tl-items">
+                {{#foreach ms}}
+                <div class="tl-item" data-img="{{#if feature_image}}{{img_url feature_image size="m"}}{{/if}}">
+                    <span class="tl-dot"></span>
+                    <div class="tl-card"><span class="tl-year">{{title}}</span><p>{{excerpt}}</p></div>
+                </div>
+                {{/foreach}}
+                </div>
+            </div>
+        </div>
+    </section>
+    {{/if}}
+{{/get}}
+
+{{!-- LEADERS QUOTE STRIP (optional, from tag:home-testimonials first post) --}}
+{{#get "posts" filter="tag:home-testimonials" limit="1" order="published_at desc" as |q|}}
+    {{#if q}}
+    {{#foreach q}}
+    <section class="ab-quote">
+        <div class="container ab-quote__inner reveal">
+            <svg class="ab-quote__mark" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M7 7h4v6c0 2.2-1.4 3.6-3.6 4l-.4-1.5C8.3 15 9 14.3 9 13H7V7zm7 0h4v6c0 2.2-1.4 3.6-3.6 4l-.4-1.5c1.3-.5 2-1.2 2-2.5h-2V7z"/></svg>
+            <blockquote>{{excerpt words="40"}}</blockquote>
+            <cite>— {{title}}{{#primary_tag}}, {{name}}{{/primary_tag}}</cite>
+        </div>
+    </section>
+    {{/foreach}}
+    {{/if}}
+{{/get}}
+
+{{!-- LEGAL / TRANSPARENCY --}}
+<section class="section bg-soft">
+    <div class="container">
+        <div class="shead-minimal reveal"><span class="shead-label">Transparency</span><h2>Registered &amp; compliant</h2></div>
+        <div class="legal-badges reveal" data-badges="{{@custom.footer_reg_line}}">
+            {{!-- JS splits footer_reg_line by · and renders spans. Inline fallback removed. --}}
+        </div>
+        <p class="center muted" style="margin-top:1.5rem">View full registration details on our <a href="/legal-status/">Legal Status</a> page.</p>
+    </div>
+</section>
+
+{{!-- ===== COMMUNITY GALLERY CAROUSEL — CMS-driven: posts with internal tag #gallery ===== --}}
+{{#get "posts" filter="tag:hash-gallery" limit="9" order="published_at desc" as |gallery|}}
+    {{#if gallery}}
+    <section class="section community-gallery">
+        <div class="container">
+            <div class="gallery-header shead-minimal reveal">
+                {{#get "pages" slug="gallery-intro" as |intro|}}
+                    {{#if intro}}{{#foreach intro}}<span class="shead-label">Gallery</span><h2>{{title}}</h2>{{#if excerpt}}<p>{{excerpt}}</p>{{/if}}{{/foreach}}{{else}}<span class="shead-label">Gallery</span><h2>Moments from Our Community</h2>{{/if}}
+                {{/get}}
+            </div>
+            <div class="gallery-carousel-wrapper reveal">
+                <button class="carousel-btn prev" type="button" aria-label="Previous photo">&#8249;</button>
+                <div class="carousel-track" id="communityCarousel">
+                    {{#foreach gallery}}
+                    <div class="gallery-card"><img src="{{img_url feature_image size="l" format="webp"}}" alt="{{title}}" loading="lazy"></div>
+                    {{/foreach}}
+                </div>
+                <button class="carousel-btn next" type="button" aria-label="Next photo">&#8250;</button>
+            </div>
+        </div>
+    </section>
+    {{/if}}
+{{/get}}
+
+{{!-- Supporting Bodies / Funders --}}
+{{#get "posts" filter="tag:home-partners" limit="1" as |sp|}}
+<section class="section-sm partners bg-soft">
+    <div class="container">
+        <div class="shead-divider reveal"><span>Supported By</span></div>
+    </div>
+    {{#if sp}}
+    <div class="partners__source partners__source--about" hidden>{{#foreach sp}}{{content}}{{/foreach}}</div>
+    {{/if}}
+    <div class="partners__rows" id="aboutPartnersRows">
+        <div class="marquee marquee--fwd"><div class="marquee__track" id="aboutPartnersRow1"></div></div>
+        <div class="marquee marquee--rev"><div class="marquee__track" id="aboutPartnersRow2"></div></div>
+    </div>
+</section>
+{{/get}}
+
+{{> "cta"}}
+{{/page}}

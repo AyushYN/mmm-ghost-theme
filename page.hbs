@@ -1,0 +1,24 @@
+{{!< default}}
+{{#page}}
+<article class="inner-page">
+    {{#if @page.show_title_and_feature_image}}
+    <header class="page-hero{{#if feature_image}} page-hero--image{{/if}}">
+        {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl"}}')"></div><span class="page-hero__scrim"></span>{{/if}}
+        <div class="container page-hero__inner">
+            <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> {{title}}</nav>
+            <h1>{{title}}</h1>
+            {{#if custom_excerpt}}<p class="page-hero__sub">{{custom_excerpt}}</p>{{/if}}
+        </div>
+    </header>
+    {{/if}}
+
+    {{#if content}}
+    <section class="section">
+        <div class="container container--narrow">
+            <div class="prose gh-content reveal">{{content}}</div>
+        </div>
+    </section>
+    {{/if}}
+</article>
+{{> "cta"}}
+{{/page}}
