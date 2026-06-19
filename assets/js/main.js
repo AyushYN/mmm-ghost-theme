@@ -131,93 +131,19 @@
     var menu   = document.getElementById('mmmMobile');
     var close  = document.getElementById('mmmClose');
     if (!burger || !menu) return;
-
-    var DASH = /^[\s]*[-\u002d\u2010\u2011\u2012\u2013\u2014\u2212]/;
-    var built = false;
-
-    function buildMobile(){
-      if (built) return;
-      built = true;
-      var ul = menu.querySelector('.mmm-mobile__nav ul.nav');
-      if (!ul) return;
-
-      /* Process flat list into nested dropdowns */
-      var items = Array.prototype.slice.call(ul.children);
-      var lastParent = null;
-
-      items.forEach(function(li){
-        var a = li.querySelector('a');
-        if (!a) return;
-        var label = a.textContent.trim();
-        if (label.toLowerCase() === 'donate') { li.style.display = 'none'; return; }
-
-        if (DASH.test(label)) {
-          a.textContent = label.replace(DASH, '').trim();
-          if (lastParent) {
-            var drop = lastParent.querySelector('.mob-drop');
-            if (!drop) {
-              drop = document.createElement('ul');
-              drop.className = 'mob-drop';
-              drop.style.cssText = 'display:none;list-style:none;margin:.2rem 0 .4rem 1rem;padding:0;border-left:3px solid #e4eaf3;';
-              lastParent.appendChild(drop);
-              lastParent.classList.add('mob-has-drop');
-              var pa = lastParent.querySelector('a');
-              if (pa) {
-                var arrow = document.createElement('span');
-                arrow.textContent = ' ▾';
-                arrow.className = 'mob-arrow';
-                arrow.style.cssText = 'font-size:.7rem;opacity:.6;transition:transform .2s;display:inline-block;';
-                pa.appendChild(arrow);
-              }
-            }
-            drop.appendChild(li);
-            li.style.display = '';
-            /* Style the child link */
-            if (a) {
-              a.style.cssText = 'display:block;padding:.6rem 1rem;border-radius:10px;font-size:.93rem;color:#16203a;';
-            }
-          }
-        } else {
-          lastParent = li;
-        }
-      });
-
-      /* Tap parent to toggle */
-      ul.querySelectorAll('.mob-has-drop > a').forEach(function(a){
-        a.addEventListener('click', function(e){
-          e.preventDefault();
-          var drop = a.parentNode.querySelector('.mob-drop');
-          var arrow = a.querySelector('.mob-arrow');
-          if (!drop) return;
-          var isOpen = drop.style.display === 'block';
-          drop.style.display = isOpen ? 'none' : 'block';
-          if (arrow) arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
-        });
-      });
-
-      /* Close drawer on leaf link tap */
-      ul.querySelectorAll('a').forEach(function(a){
-        if (!a.closest('.mob-has-drop') || a.closest('.mob-drop')) {
-          a.addEventListener('click', function(){ shut(); });
-        }
-      });
-    }
-
-    function open(){
-      menu.classList.add('open');
-      menu.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
-      buildMobile();
-    }
-    function shut(){
-      menu.classList.remove('open');
-      menu.setAttribute('aria-hidden','true');
-      document.body.style.overflow = '';
-    }
-
+    function open(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+    function shut(){ menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
     burger.addEventListener('click', open);
     if (close) close.addEventListener('click', shut);
-    menu.addEventListener('click', function(e){ if (e.target === menu) shut(); });
+    menu.addEventListener('click', function(e){ if(e.target===menu) shut(); });
+    /* Only close drawer when a LEAF link is tapped — not a parent dropdown toggle */
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        /* If this link is a dropdown parent, don't close the drawer */
+        if (a.closest('.mmm-has-drop') && !a.closest('.mmm-drop')) return;
+        shut();
+      });
+    });
   })();
 /* ---- 4. Hero slider ---- */
   (function hero(){

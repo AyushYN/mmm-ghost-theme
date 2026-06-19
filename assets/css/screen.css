@@ -2924,3 +2924,113 @@ body:not(.is-home) .mmm-nav__links-wrap .nav > .nav-item > a{
   -webkit-backdrop-filter:none !important;
 }
 /* Only the .mmm-nav pill itself gets the background */
+
+
+/* ==========================================================================
+   MMM MOBILE NAV — restored from initial working version
+   ========================================================================== */
+
+/* Caret on parent items */
+.mmm-caret{
+  display:inline-block;width:6px;height:6px;
+  border-right:1.8px solid currentColor;
+  border-bottom:1.8px solid currentColor;
+  transform:rotate(45deg);
+  margin:-1px 0 0 2px;
+  transition:transform .2s;
+}
+.mmm-has-drop.open > a .mmm-caret{transform:rotate(225deg);margin-top:1px}
+
+/* Desktop dropdown */
+.mmm-drop{
+  display:none;
+  position:absolute;
+  top:calc(100% + 6px);left:0;
+  min-width:200px;
+  background:#fff;
+  border:1px solid var(--c-line);
+  border-radius:var(--r-md);
+  box-shadow:0 8px 28px rgba(16,24,46,.14);
+  padding:.4rem;
+  list-style:none;margin:0;
+  z-index:600;
+}
+.mmm-has-drop{position:relative}
+.mmm-has-drop.open > .mmm-drop{display:block}
+.mmm-drop > .nav-item{display:block !important}
+.mmm-drop > .nav-item > a{
+  display:block;padding:.55rem .9rem;
+  border-radius:8px;color:var(--c-ink);
+  font-size:.88rem;font-weight:500;
+  white-space:nowrap;
+}
+.mmm-drop > .nav-item > a:hover{background:var(--c-soft);color:var(--c-primary)}
+
+/* Mobile overlay */
+.mmm-mobile{
+  position:fixed;inset:0;z-index:1100;
+  background:rgba(16,24,46,.5);
+  opacity:0;visibility:hidden;
+  transition:opacity .3s,visibility .3s;
+  display:block; /* keep in DOM, use opacity/visibility to show/hide */
+}
+.mmm-mobile.open{opacity:1;visibility:visible}
+
+/* Slide-in panel */
+.mmm-mobile__panel{
+  position:absolute;top:0;right:0;
+  height:100%;width:min(85%,340px);
+  background:#fff;
+  padding:4rem 1.5rem 2rem;
+  overflow-y:auto;
+  display:flex;flex-direction:column;gap:.3rem;
+  transform:translateX(100%);
+  transition:transform .32s ease;
+}
+.mmm-mobile.open .mmm-mobile__panel{transform:none}
+
+/* Close button */
+.mmm-mobile__close{
+  position:absolute;top:1rem;right:1.2rem;
+  font-size:2rem;line-height:1;
+  background:none;border:none;cursor:pointer;
+  color:var(--c-ink-soft);z-index:2;
+}
+
+/* Nav list inside drawer */
+.mmm-mobile__nav .nav{
+  list-style:none;margin:0;padding:0;
+  display:flex;flex-direction:column;gap:.2rem;
+}
+.mmm-mobile__nav .nav-item > a{
+  display:block;padding:.8rem 1rem;
+  border-radius:12px;font-size:.97rem;font-weight:500;
+  color:var(--c-ink);text-decoration:none;
+}
+.mmm-mobile__nav .nav-item > a:hover,
+.mmm-mobile__nav .nav-item > a:active{
+  background:var(--c-soft);color:var(--c-primary);
+}
+
+/* Dropdown inside drawer — accordion style */
+.mmm-mobile__nav .mmm-drop{
+  position:static !important;
+  display:none;
+  border:none !important;
+  box-shadow:none !important;
+  border-left:3px solid var(--c-primary) !important;
+  border-radius:0 !important;
+  margin:.1rem 0 .4rem 1rem !important;
+  padding:.2rem 0 !important;
+  background:transparent !important;
+  z-index:auto !important;
+}
+.mmm-mobile__nav .mmm-has-drop.open > .mmm-drop{display:block !important}
+
+/* Parent link inside mobile drawer — show caret */
+.mmm-mobile__nav .mmm-has-drop > a{
+  display:flex;align-items:center;justify-content:space-between;
+}
+.mmm-mobile__nav .mmm-has-drop.open > a .mmm-caret{
+  transform:rotate(225deg);
+}
