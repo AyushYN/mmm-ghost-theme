@@ -172,7 +172,7 @@
        • Add internal tag: #gallery
        • Publish
 ===== --}}
-{{#get "pages" slug="community-gallery" limit="1" as |gpage|}}
+{{#get "pages" filter="slug:community-gallery" limit="1" as |gpage|}}
 {{#get "posts" filter="tag:hash-gallery" limit="20" order="published_at desc" as |gposts|}}
 
 {{!-- Collect images from the page body (Gallery card / image cards) --}}
