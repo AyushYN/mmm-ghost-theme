@@ -155,28 +155,79 @@
     </div>
 </section>
 
-{{!-- ===== COMMUNITY GALLERY CAROUSEL — CMS-driven: posts with internal tag #gallery ===== --}}
-{{#get "posts" filter="tag:hash-gallery" limit="9" order="published_at desc" as |gallery|}}
-    {{#if gallery}}
-    <section class="section community-gallery">
-        <div class="container">
-            <div class="gallery-header shead-minimal reveal">
-                {{#get "pages" slug="gallery-intro" as |intro|}}
-                    {{#if intro}}{{#foreach intro}}<span class="shead-label">Gallery</span><h2>{{title}}</h2>{{#if excerpt}}<p>{{excerpt}}</p>{{/if}}{{/foreach}}{{else}}<span class="shead-label">Gallery</span><h2>Moments from Our Community</h2>{{/if}}
-                {{/get}}
-            </div>
-            <div class="gallery-carousel-wrapper reveal">
-                <button class="carousel-btn prev" type="button" aria-label="Previous photo">&#8249;</button>
-                <div class="carousel-track" id="communityCarousel">
-                    {{#foreach gallery}}
-                    <div class="gallery-card"><img src="{{img_url feature_image size="l" format="webp"}}" alt="{{title}}" loading="lazy"></div>
-                    {{/foreach}}
-                </div>
-                <button class="carousel-btn next" type="button" aria-label="Next photo">&#8250;</button>
-            </div>
+{{!-- ===== COMMUNITY GALLERY CAROUSEL
+     CMS-driven — TWO ways to add photos (both work simultaneously):
+
+     WAY 1 — Single page with bulk images (easiest for large batches):
+       • Ghost Admin → Pages → New Page
+       • Slug: "community-gallery"
+       • In the editor body, use the Gallery card (type / → Gallery)
+         or just paste/drag multiple images — upload as many as you want at once
+       • Publish the page
+       • All images from that page appear in the carousel automatically
+
+     WAY 2 — One post per photo (good for captioned individual shots):
+       • Ghost Admin → Posts → New Post
+       • Set a Feature Image
+       • Add internal tag: #gallery
+       • Publish
+===== --}}
+{{#get "pages" slug="community-gallery" limit="1" as |gpage|}}
+{{#get "posts" filter="tag:hash-gallery" limit="20" order="published_at desc" as |gposts|}}
+
+{{!-- Collect images from the page body (Gallery card / image cards) --}}
+{{#if gpage}}{{#foreach gpage}}
+<div id="galleryPageImages" hidden>{{content}}</div>
+{{/foreach}}{{/if}}
+
+{{!-- Check if we have either source --}}
+{{#if gpage}}
+<section class="section community-gallery">
+    <div class="container">
+        <div class="gallery-header shead-minimal reveal">
+            <span class="shead-label">Gallery</span>
+            <h2>Moments from <strong class="dot-accent">Our Community</strong></h2>
+            <p>Every photo is a life touched — see the difference your support makes.</p>
         </div>
-    </section>
-    {{/if}}
+        <div class="gallery-carousel-wrapper reveal">
+            <button class="carousel-btn prev" type="button" aria-label="Previous photo">&#8249;</button>
+            <div class="carousel-track" id="communityCarousel">
+                {{!-- Images from single page (Way 1) — JS extracts them from #galleryPageImages --}}
+                {{!-- Images from tagged posts (Way 2) --}}
+                {{#foreach gposts}}
+                <div class="gallery-card gallery-card--post">
+                    <img src="{{img_url feature_image size="l" format="webp"}}" alt="{{title}}" loading="lazy">
+                </div>
+                {{/foreach}}
+            </div>
+            <button class="carousel-btn next" type="button" aria-label="Next photo">&#8250;</button>
+        </div>
+    </div>
+</section>
+{{else if gposts}}
+<section class="section community-gallery">
+    <div class="container">
+        <div class="gallery-header shead-minimal reveal">
+            <span class="shead-label">Gallery</span>
+            <h2>Moments from <strong class="dot-accent">Our Community</strong></h2>
+            <p>Every photo is a life touched — see the difference your support makes.</p>
+        </div>
+        <div class="gallery-carousel-wrapper reveal">
+            <button class="carousel-btn prev" type="button" aria-label="Previous photo">&#8249;</button>
+            <div class="carousel-track" id="communityCarousel">
+                {{#foreach gposts}}
+                <div class="gallery-card">
+                    <img src="{{img_url feature_image size="l" format="webp"}}" alt="{{title}}" loading="lazy">
+                </div>
+                {{/foreach}}
+            </div>
+            <button class="carousel-btn next" type="button" aria-label="Next photo">&#8250;</button>
+        </div>
+    </div>
+</section>
+{{/if}}
+
+{{/get}}
 {{/get}}
 
 {{!-- Supporting Bodies / Funders --}}

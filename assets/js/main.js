@@ -640,6 +640,27 @@
   })();
 
   /* ---- 17. Community gallery — scattered stacked carousel (About + Donate pages) ---- */
+
+  /* Extract images from a Ghost page's content (Way 1: bulk upload via Gallery card) */
+  (function extractPageGalleryImages() {
+    var src = document.getElementById('galleryPageImages');
+    var track = document.getElementById('communityCarousel');
+    if (!src || !track) return;
+
+    var imgs = Array.prototype.slice.call(src.querySelectorAll('img'));
+    imgs.forEach(function(img) {
+      var card = document.createElement('div');
+      card.className = 'gallery-card';
+      var i = document.createElement('img');
+      i.src = img.src;
+      i.alt = img.alt || 'Gallery photo';
+      i.loading = 'lazy';
+      card.appendChild(i);
+      track.appendChild(card);
+    });
+
+    src.remove();
+  })();
   function initCarousel(trackId) {
     var track = document.getElementById(trackId);
     if (!track) return;
