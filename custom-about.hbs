@@ -1,4 +1,4 @@
-{{!< default}}
+﻿{{!< default}}
 {{!--
   custom-about.hbs — editorial About page.
   Uses: page feature image (hero), page body ({{content}} = Who We Are),
@@ -51,7 +51,7 @@
         {{!-- Fully CMS-driven: posts tagged "vmg" — Title = heading, Excerpt = paragraph.
              For the Goals post, add a bulleted list in the post body (it renders in place of the paragraph).
              Icons are decorative, selected by position. Hides when no posts are tagged. --}}
-        {{#get "posts" filter="tag:vmg" limit="3" order="published_at asc" as |vmg|}}
+        {{#get "posts" filter="tag:hash-vmg" limit="3" order="published_at asc" as |vmg|}}
             {{#if vmg}}
             <div class="ab-band__cards">
                 {{#foreach vmg}}
@@ -73,7 +73,7 @@
         <div class="shead-minimal reveal"><span class="shead-label">By the Numbers</span><h2>Four decades, measurable change</h2></div>
         {{!-- Fully CMS-driven: reuses the same tag:home-stats posts from the homepage ribbon.
              Row hides automatically when no posts are tagged. --}}
-        {{#get "posts" filter="tag:home-stats" limit="4" order="published_at asc" as |stats|}}
+        {{#get "posts" filter="tag:hash-home-stats" limit="4" order="published_at asc" as |stats|}}
             {{#if stats}}
             <div class="ab-stats__row reveal" id="abStatsRow">
                 {{#foreach stats}}
@@ -91,7 +91,7 @@
         <div class="shead-minimal reveal"><span class="shead-label">What Guides Us</span><h2>Our Core Values</h2></div>
         {{!-- Fully CMS-driven: posts tagged "our-values" — Title = value name, Excerpt = description.
              Icons are decorative, selected by position. Grid hides when no posts are tagged. --}}
-        {{#get "posts" filter="tag:our-values" limit="6" order="published_at asc" as |values|}}
+        {{#get "posts" filter="tag:hash-our-values" limit="6" order="published_at asc" as |values|}}
             {{#if values}}
             <div class="values-grid">
                 {{#foreach values}}
@@ -108,7 +108,7 @@
 </section>
 
 {{!-- TIMELINE (tag:milestones — Title=year, Excerpt=description) --}}
-{{#get "posts" filter="tag:milestones" limit="60" order="published_at asc" as |ms|}}
+{{#get "posts" filter="tag:hash-milestones" limit="60" order="published_at asc" as |ms|}}
     {{#if ms}}
     <section class="section">
         <div class="container">
@@ -130,7 +130,7 @@
 {{/get}}
 
 {{!-- LEADERS QUOTE STRIP (optional, from tag:home-testimonials first post) --}}
-{{#get "posts" filter="tag:home-testimonials" limit="1" order="published_at desc" as |q|}}
+{{#get "posts" filter="tag:hash-home-testimonials" limit="1" order="published_at desc" as |q|}}
     {{#if q}}
     {{#foreach q}}
     <section class="ab-quote">
@@ -231,7 +231,7 @@
 {{/get}}
 
 {{!-- Supporting Bodies / Funders --}}
-{{#get "posts" filter="tag:home-partners" limit="1" as |sp|}}
+{{#get "posts" filter="tag:hash-home-partners" limit="1" as |sp|}}
 <section class="section-sm partners bg-soft">
     <div class="container">
         <div class="shead-divider reveal"><span>Supported By</span></div>

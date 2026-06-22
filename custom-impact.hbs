@@ -1,4 +1,4 @@
-{{!< default}}
+﻿{{!< default}}
 {{#page}}
 <header class="page-hero page-hero--image">
     {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl"}}')"></div>{{else}}<div class="page-hero__bg page-hero__bg--grad"></div>{{/if}}
@@ -14,7 +14,7 @@
      Title = number (e.g. 5,723 or 17,600+), Excerpt = label.
      Reuses the same posts as the homepage impact section (homepage shows the
      first 6; this page shows all). Section hides when no posts are tagged. --}}
-{{#get "posts" filter="tag:impact-stats" limit="12" order="published_at asc" as |impacts|}}
+{{#get "posts" filter="tag:hash-impact-stats" limit="12" order="published_at asc" as |impacts|}}
     {{#if impacts}}
     <section class="section">
         <div class="container">

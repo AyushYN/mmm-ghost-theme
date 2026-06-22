@@ -1,10 +1,10 @@
-<section class="section cta">
+﻿<section class="section cta">
     <div class="container">
         <div class="cta__card reveal">
             <div class="cta__glow" aria-hidden="true"></div>
             {{!-- Heading + text are CMS-driven: create ONE post tagged "site-cta".
                  Title = heading, Excerpt = supporting line. Buttons always show. --}}
-            {{#get "posts" filter="tag:site-cta" limit="1" as |cta|}}
+            {{#get "posts" filter="tag:hash-site-cta" limit="1" as |cta|}}
                 {{#if cta}}{{#foreach cta}}
                 <h2>{{title}}</h2>
                 {{#if custom_excerpt}}<p>{{custom_excerpt}}</p>{{else}}{{#if excerpt}}<p>{{excerpt}}</p>{{/if}}{{/if}}

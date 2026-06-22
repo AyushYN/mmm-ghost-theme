@@ -1,4 +1,4 @@
-{{!< default}}
+﻿{{!< default}}
 
 {{!-- ============================ 1. HERO SLIDER ============================
   Slides = posts tagged "hero-slider" (Title = headline, Excerpt = subtext,
@@ -6,7 +6,7 @@
   Falls back to the Hero custom settings when no slider posts exist. --}}
 <section class="hero" id="hero">
     <div class="hero__viewport">
-    {{#get "posts" filter="tag:hero-slider" limit="6" order="published_at desc" as |slides|}}
+    {{#get "posts" filter="tag:hash-hero-slider" limit="6" order="published_at desc" as |slides|}}
         {{#if slides}}
             {{#foreach slides}}
             <article class="hero__slide{{#if @first}} is-active{{/if}}">
@@ -55,7 +55,7 @@
 {{!-- ============================ 2. STAT RIBBON ============================ --}}
 {{!-- Fully CMS-driven: posts tagged "home-stats" — Title = number, Excerpt = label.
      Section hides automatically when no posts are tagged. --}}
-{{#get "posts" filter="tag:home-stats" limit="4" order="published_at asc" as |stats|}}
+{{#get "posts" filter="tag:hash-home-stats" limit="4" order="published_at asc" as |stats|}}
     {{#if stats}}
     <section class="ribbon">
         <div class="container ribbon__grid">
@@ -83,7 +83,7 @@
             <p class="lead">{{@site.description}}</p>
             {{!-- Fully CMS-driven: posts tagged "about-points" — Title = bold heading, Excerpt = description.
                  List hides automatically when no posts are tagged. --}}
-            {{#get "posts" filter="tag:about-points" limit="3" order="published_at asc" as |pts|}}
+            {{#get "posts" filter="tag:hash-about-points" limit="3" order="published_at asc" as |pts|}}
                 {{#if pts}}
                 <ul class="about__points">
                     {{#foreach pts}}
@@ -109,7 +109,7 @@
             <p class="shead__sub">For over four decades MMM has served the women and children of Morigaon through focused, community-led programmes.</p>
         </div>
     </div>
-    {{#get "posts" filter="tag:home-programs" limit="5" order="published_at asc" as |programs|}}
+    {{#get "posts" filter="tag:hash-home-programs" limit="5" order="published_at asc" as |programs|}}
         {{#if programs}}
         <div class="bento-wrap">
             <div class="bento">
@@ -139,7 +139,7 @@
         {{!-- Fully CMS-driven: posts tagged "impact-stats" — Title = number, Excerpt = label.
              Icons are decorative and selected by position; all content comes from CMS.
              Grid hides automatically when no posts are tagged. --}}
-        {{#get "posts" filter="tag:impact-stats" limit="6" order="published_at asc" as |impacts|}}
+        {{#get "posts" filter="tag:hash-impact-stats" limit="6" order="published_at asc" as |impacts|}}
             {{#if impacts}}
             <div class="ic-grid reveal" id="icGrid">
                 {{#foreach impacts}}
@@ -172,7 +172,7 @@
 {{/get}}
 
 {{!-- ============================ 7. TESTIMONIALS ============================ --}}
-{{#get "posts" filter="tag:home-testimonials" limit="6" order="published_at desc" as |quotes|}}
+{{#get "posts" filter="tag:hash-home-testimonials" limit="6" order="published_at desc" as |quotes|}}
     {{#if quotes}}
     <section class="section">
         <div class="container">
@@ -197,7 +197,7 @@
 {{!-- ============================ 8. PARTNERS MARQUEE ============================
   One post tagged "home-partners" containing a Ghost Gallery card of logos.
   JS splits logos into two rows: row 1 scrolls right, row 2 scrolls left. --}}
-{{#get "posts" filter="tag:home-partners" limit="1" as |sp|}}
+{{#get "posts" filter="tag:hash-home-partners" limit="1" as |sp|}}
 <section class="section-sm partners bg-soft">
     <div class="container">
         <div class="shead-divider reveal"><span>Our Funders &amp; Partners</span></div>
@@ -214,7 +214,7 @@
 
 {{!-- ============================ 9. GALLERY ============================
   One post tagged "home-gallery" containing a Ghost Gallery card. --}}
-{{#get "posts" filter="tag:home-gallery" limit="1" as |gal|}}
+{{#get "posts" filter="tag:hash-home-gallery" limit="1" as |gal|}}
     {{#if gal}}
     <section class="section">
         <div class="container">

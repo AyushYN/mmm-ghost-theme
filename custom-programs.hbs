@@ -15,7 +15,7 @@
 {{!-- Programme editorial rows â€” fully CMS-driven: posts tagged "home-programs".
      Title = programme name, Primary tag = overline label, Excerpt = description,
      Feature image = media, og_title (Facebook title) = link. Hides when no posts. --}}
-{{#get "posts" filter="tag:home-programs" limit="12" order="published_at asc" as |programs|}}
+{{#get "posts" filter="tag:hash-home-programs" limit="12" order="published_at asc" as |programs|}}
     {{#if programs}}
     <section class="peditorial">
         <div class="container">

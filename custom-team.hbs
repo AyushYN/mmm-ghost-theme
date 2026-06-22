@@ -1,4 +1,4 @@
-{{!< default}}
+﻿{{!< default}}
 {{!--
   custom-team.hbs
   Group photo = page feature image (upload the All Staff group photo here).
@@ -32,7 +32,7 @@
 {{/if}}
 
 {{!-- FOUNDERS / LEADERS — tag:team-leaders (split card, alternating) --}}
-{{#get "posts" filter="tag:team-leaders" limit="10" order="published_at asc" as |leaders|}}
+{{#get "posts" filter="tag:hash-team-leaders" limit="10" order="published_at asc" as |leaders|}}
     {{#if leaders}}
     <section class="section">
         <div class="container">
@@ -68,7 +68,7 @@
 </div>
 
 {{!-- Managing Committee --}}
-{{#get "posts" filter="tag:team-board" limit="50" order="published_at asc" as |board|}}
+{{#get "posts" filter="tag:hash-team-board" limit="50" order="published_at asc" as |board|}}
     {{#if board}}
     <section class="section bg-soft" id="team-board-section">
         <div class="container">
@@ -90,7 +90,7 @@
 {{/get}}
 
 {{!-- Staff & Field Team --}}
-{{#get "posts" filter="tag:team-staff" limit="80" order="published_at asc" as |staff|}}
+{{#get "posts" filter="tag:hash-team-staff" limit="80" order="published_at asc" as |staff|}}
     {{#if staff}}
     <section class="section" id="team-staff-section">
         <div class="container">
