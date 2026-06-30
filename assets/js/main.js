@@ -264,12 +264,18 @@
     }
 
     function buildTrack(track, set) {
+      // Repeat the set enough times to guarantee seamless infinite scroll
+      // regardless of how few logos there are
+      var MIN_WIDTH = 4000; // px — more than any viewport
       var html = '';
-      [set, set].forEach(function(s){
-        s.forEach(function(logo){
+      // Build one copy first to estimate width (~180px per logo on average)
+      var approxLogoW = 180;
+      var copies = Math.max(4, Math.ceil(MIN_WIDTH / (set.length * approxLogoW)) * 2);
+      for (var c = 0; c < copies; c++) {
+        set.forEach(function(logo){
           html += '<div class="partners__logo"><img src="' + logo.src + '" alt="' + logo.alt + '" loading="lazy"></div>';
         });
-      });
+      }
       track.innerHTML = html;
     }
     buildTrack(row1, set1);
@@ -279,8 +285,11 @@
     var half1 = 0, half2 = 0;
 
     function measure() {
-      half1 = row1.scrollWidth / 2;
-      half2 = set2.length ? row2.scrollWidth / 2 : 0;
+      // Measure the width of one copy of the set (total / number of copies)
+      var copies1 = Math.max(4, Math.ceil(4000 / (set1.length * 180)) * 2);
+      var copies2 = set2.length ? Math.max(4, Math.ceil(4000 / (set2.length * 180)) * 2) : 0;
+      half1 = row1.scrollWidth / copies1;
+      half2 = (set2.length && copies2) ? row2.scrollWidth / copies2 : 0;
     }
     measure();
     window.addEventListener('load', measure);

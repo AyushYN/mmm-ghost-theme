@@ -29,17 +29,34 @@
             </ul>
         </div>
 
-        {{!-- Programmes column — driven by Ghost Secondary Navigation (Settings → Navigation) --}}
-        {{#if @site.secondary_navigation}}
-        <div class="footer__col">
-            <h4>Programmes</h4>
-            <ul>
-                {{#foreach @site.secondary_navigation}}
-                <li><a href="{{url absolute="true"}}">{{label}}</a></li>
-                {{/foreach}}
-            </ul>
-        </div>
-        {{/if}}
+        {{!-- Programmes column — CMS-driven from tag:home-programs posts.
+             Each post: Title = programme name, og_title (Facebook title) = link URL.
+             Falls back to tag:hash-home-programs for when internal tags are used. --}}
+        {{#get "posts" filter="tag:home-programs" limit="10" order="published_at asc" as |progs|}}
+        {{#unless progs}}
+            {{#get "posts" filter="tag:hash-home-programs" limit="10" order="published_at asc" as |progs|}}
+            {{#if progs}}
+            <div class="footer__col">
+                <h4>Programmes</h4>
+                <ul>
+                    {{#foreach progs}}
+                    <li><a href="{{#if og_title}}{{og_title}}{{else}}{{@site.url}}/programs/{{/if}}">{{title}}</a></li>
+                    {{/foreach}}
+                </ul>
+            </div>
+            {{/if}}
+            {{/get}}
+        {{else}}
+            <div class="footer__col">
+                <h4>Programmes</h4>
+                <ul>
+                    {{#foreach progs}}
+                    <li><a href="{{#if og_title}}{{og_title}}{{else}}{{@site.url}}/programs/{{/if}}">{{title}}</a></li>
+                    {{/foreach}}
+                </ul>
+            </div>
+        {{/unless}}
+        {{/get}}
 
         <div class="footer__col footer__reach">
             <h4>Reach Us</h4>

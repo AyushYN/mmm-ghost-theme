@@ -48,7 +48,7 @@ collections:
   /news/:
     permalink: /news/{slug}/
     template: index
-    filter: tag:-hash-internal+tag:-event+tag:-newsletter+tag:-success-stories
+    filter: tag:-hash-internal+tag:-event+tag:-newsletter+tag:-success-stories+tag:-awards+tag:-get-involved
     order: published_at desc
 
 taxonomies:
