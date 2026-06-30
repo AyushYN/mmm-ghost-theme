@@ -602,8 +602,8 @@
     function reset(){
       if (document.body){ document.body.style.setProperty('top','0px','important'); document.body.style.setProperty('position','static','important'); }
       document.documentElement.style.setProperty('margin-top','0px','important');
-      var bar = document.querySelector('.goog-te-banner-frame, iframe.skiptranslate');
-      if (bar) bar.style.setProperty('display','none','important');
+      var els = document.querySelectorAll('.goog-te-banner-frame, iframe.skiptranslate, #goog-gt-tt, .VIpgJd-yAWNEb-L7lbkb, .goog-te-balloon-frame, .goog-tooltip');
+      els.forEach(function(el){ el.style.setProperty('display','none','important'); });
     }
     reset(); window.addEventListener('load', reset);
     if ('MutationObserver' in window){ new MutationObserver(reset).observe(document.documentElement, {childList:true, subtree:true, attributes:true, attributeFilter:['style','class']}); }
