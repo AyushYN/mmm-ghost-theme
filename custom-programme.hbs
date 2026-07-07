@@ -10,13 +10,13 @@
 --}}
 {{#page}}
 <header class="page-hero page-hero--image page-hero--prog">
-    {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl"}}')"></div>{{else}}<div class="page-hero__bg page-hero__bg--grad"></div>{{/if}}
+    {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl" format="webp"}}')"></div>{{else}}<div class="page-hero__bg page-hero__bg--grad"></div>{{/if}}
     <span class="page-hero__scrim"></span>
     <div class="container page-hero__inner">
-        <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> <a href="/programs/">Programmes</a> <span>/</span> {{title}}</nav>
+        <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> <a href="{{@site.url}}/programs/">Programmes</a> <span>/</span> {{title}}</nav>
         <h1>{{title}}</h1>
         {{#if custom_excerpt}}<p class="page-hero__sub">{{custom_excerpt}}</p>{{/if}}
-        <a href="/contact/" class="btn btn--accent btn--lg prog-enquire-btn">Enquire / Get Support {{> "icon-arrow"}}</a>
+        <a href="{{@site.url}}/contact/" class="btn btn--accent btn--lg prog-enquire-btn">Enquire / Get Support {{> "icon-arrow"}}</a>
     </div>
 </header>
 
@@ -36,7 +36,7 @@
             <div class="act-grid">
                 {{#foreach acts}}
                 <article class="act-card reveal">
-                    {{#if feature_image}}<div class="act-card__img" style="background-image:url('{{img_url feature_image size="m"}}')"></div>{{/if}}
+                    {{#if feature_image}}<div class="act-card__img" style="background-image:url('{{img_url feature_image size="m" format="webp"}}')"></div>{{/if}}
                     <div class="act-card__body">
                         <h4>{{title}}</h4>
                         <p>{{excerpt words="28"}}</p>
@@ -72,7 +72,7 @@
         <div class="container">
             <div class="shead reveal">
                 <div><span class="eyebrow">Impact</span><h2>Stories from this programme</h2></div>
-                <a href="/tag/success-stories/" class="btn btn--outline">All stories {{> "icon-arrow"}}</a>
+                <a href="{{@site.url}}/tag/success-stories/" class="btn btn--outline">All stories {{> "icon-arrow"}}</a>
             </div>
             <div class="grid grid-3">{{#foreach stories}}{{> "post-card"}}{{/foreach}}</div>
         </div>
@@ -89,7 +89,7 @@
                 <p>Reach our team directly — we respond to every enquiry.</p>
             </div>
             <div class="enquire-band__actions">
-                <a href="/contact/" class="btn btn--accent btn--lg">Contact Us {{> "icon-arrow"}}</a>
+                <a href="{{@site.url}}/contact/" class="btn btn--accent btn--lg">Contact Us {{> "icon-arrow"}}</a>
                 {{#if @custom.whatsapp_number}}<a href="https://wa.me/{{@custom.whatsapp_number}}" class="btn btn--outline btn--lg" target="_blank" rel="noopener">WhatsApp Us</a>{{/if}}
             </div>
         </div>

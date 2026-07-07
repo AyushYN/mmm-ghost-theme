@@ -10,7 +10,7 @@
         {{#if slides}}
             {{#foreach slides}}
             <article class="hero__slide{{#if @first}} is-active{{/if}}">
-                <div class="hero__bg{{#unless feature_image}} is-grad{{/unless}}"{{#if feature_image}} style="background-image:url('{{img_url feature_image size="xl"}}')"{{/if}}></div>
+                <div class="hero__bg{{#unless feature_image}} is-grad{{/unless}}"{{#if feature_image}} style="background-image:url('{{img_url feature_image size="xl" format="webp"}}')"{{/if}}></div>
                 <span class="hero__scrim"></span>
                 <div class="container hero__inner">
                     <div class="hero__content">
@@ -19,7 +19,7 @@
                         <p class="hero__sub">{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt words="28"}}{{/if}}</p>
                         <div class="hero__cta">
                             {{#if og_title}}<a href="{{og_title}}" class="btn btn--accent btn--lg">Learn More {{> "icon-arrow"}}</a>
-                            {{else}}<a href="/programs/" class="btn btn--accent btn--lg">Our Programmes {{> "icon-arrow"}}</a>{{/if}}
+                            {{else}}<a href="{{@site.url}}/programs/" class="btn btn--accent btn--lg">Our Programmes {{> "icon-arrow"}}</a>{{/if}}
                             <a href="{{@custom.donate_cta_url}}" class="btn btn--ghost-light btn--lg">Donate</a>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
             {{/foreach}}
         {{else}}
             <article class="hero__slide is-active">
-                <div class="hero__bg{{#unless @site.cover_image}} is-grad{{/unless}}"{{#if @site.cover_image}} style="background-image:url('{{img_url @site.cover_image size="xl"}}')"{{/if}}></div>
+                <div class="hero__bg{{#unless @site.cover_image}} is-grad{{/unless}}"{{#if @site.cover_image}} style="background-image:url('{{img_url @site.cover_image size="xl" format="webp"}}')"{{/if}}></div>
                 <span class="hero__scrim"></span>
                 <div class="container hero__inner">
                     <div class="hero__content">
@@ -36,7 +36,7 @@
                         <h1 class="hero__title">{{@custom.hero_headline}}</h1>
                         <p class="hero__sub">{{@custom.hero_subtext}}</p>
                         <div class="hero__cta">
-                            <a href="/programs/" class="btn btn--accent btn--lg">Our Programmes {{> "icon-arrow"}}</a>
+                            <a href="{{@site.url}}/programs/" class="btn btn--accent btn--lg">Our Programmes {{> "icon-arrow"}}</a>
                             <a href="{{@custom.donate_cta_url}}" class="btn btn--ghost-light btn--lg">Donate</a>
                         </div>
                     </div>
@@ -72,9 +72,9 @@
 <section class="section about">
     <div class="container about__grid">
         <div class="collage reveal">
-            <div class="collage__a">{{#if @custom.about_image_1}}<img src="{{img_url @custom.about_image_1 size="m"}}" alt="{{@site.title}}">{{else}}<span class="ph ph--1">{{> "icon-heart"}}</span>{{/if}}</div>
-            <div class="collage__b">{{#if @custom.about_image_2}}<img src="{{img_url @custom.about_image_2 size="m"}}" alt="{{@site.title}}">{{else}}<span class="ph ph--2">{{> "icon-heart"}}</span>{{/if}}</div>
-            <div class="collage__c">{{#if @custom.about_image_3}}<img src="{{img_url @custom.about_image_3 size="m"}}" alt="{{@site.title}}">{{else}}<span class="ph ph--3">{{> "icon-heart"}}</span>{{/if}}</div>
+            <div class="collage__a">{{#if @custom.about_image_1}}<img src="{{img_url @custom.about_image_1 size="m" format="webp"}}" alt="{{@site.title}}">{{else}}<span class="ph ph--1">{{> "icon-heart"}}</span>{{/if}}</div>
+            <div class="collage__b">{{#if @custom.about_image_2}}<img src="{{img_url @custom.about_image_2 size="m" format="webp"}}" alt="{{@site.title}}">{{else}}<span class="ph ph--2">{{> "icon-heart"}}</span>{{/if}}</div>
+            <div class="collage__c">{{#if @custom.about_image_3}}<img src="{{img_url @custom.about_image_3 size="m" format="webp"}}" alt="{{@site.title}}">{{else}}<span class="ph ph--3">{{> "icon-heart"}}</span>{{/if}}</div>
             <span class="collage__badge"><b>1979</b><small>Serving since</small></span>
         </div>
         <div class="about__body reveal reveal--d1">
@@ -92,7 +92,7 @@
                 </ul>
                 {{/if}}
             {{/get}}
-            <a href="/about/" class="btn btn--outline">Learn more about us {{> "icon-arrow"}}</a>
+            <a href="{{@site.url}}/about/" class="btn btn--outline">Learn more about us {{> "icon-arrow"}}</a>
         </div>
     </div>
 </section>
@@ -115,7 +115,7 @@
             <div class="bento">
                 {{#foreach programs}}
                 <a href="{{#if og_title}}{{og_title}}{{else}}{{url}}{{/if}}" class="bento__card reveal">
-                    <div class="bento__media{{#unless feature_image}} is-grad{{/unless}}"{{#if feature_image}} style="background-image:url('{{img_url feature_image size="l"}}')"{{/if}}></div>
+                    <div class="bento__media{{#unless feature_image}} is-grad{{/unless}}"{{#if feature_image}} style="background-image:url('{{img_url feature_image size="l" format="webp"}}')"{{/if}}></div>
                     <div class="bento__body">
                         <h3 class="bento__title">{{title}}</h3>
                         <p class="bento__desc">{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt words="18"}}{{/if}}</p>
@@ -128,7 +128,7 @@
         {{/if}}
     {{/get}}
     <div class="container">
-        <div class="center reveal"><a href="/programs/" class="btn btn--outline btn--lg">View All Programmes {{> "icon-arrow"}}</a></div>
+        <div class="center reveal"><a href="{{@site.url}}/programs/" class="btn btn--outline btn--lg">View All Programmes {{> "icon-arrow"}}</a></div>
     </div>
 </section>
 
@@ -152,7 +152,7 @@
             </div>
             {{/if}}
         {{/get}}
-        <div class="center reveal"><a href="/impact/" class="btn btn--outline btn--lg">See our full impact {{> "icon-arrow"}}</a></div>
+        <div class="center reveal"><a href="{{@site.url}}/impact/" class="btn btn--outline btn--lg">See our full impact {{> "icon-arrow"}}</a></div>
     </div>
 </section>
 
@@ -163,7 +163,7 @@
         <div class="container">
             <div class="shead reveal">
                 <div><span class="eyebrow">Real Lives, Real Change</span><h2>Stories of transformation</h2></div>
-                <a href="/tag/success-stories/" class="btn btn--outline">View all stories {{> "icon-arrow"}}</a>
+                <a href="{{@site.url}}/tag/success-stories/" class="btn btn--outline">View all stories {{> "icon-arrow"}}</a>
             </div>
             <div class="grid grid-3">{{#foreach stories}}{{> "post-card"}}{{/foreach}}</div>
         </div>
@@ -183,7 +183,7 @@
                     <svg class="quote-card__mark" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M7 7h4v6c0 2.2-1.4 3.6-3.6 4l-.4-1.5C8.3 15 9 14.3 9 13H7V7zm7 0h4v6c0 2.2-1.4 3.6-3.6 4l-.4-1.5c1.3-.5 2-1.2 2-2.5h-2V7z"/></svg>
                     <blockquote>{{excerpt words="34"}}</blockquote>
                     <figcaption>
-                        <span class="quote-card__avatar">{{#if feature_image}}<img src="{{img_url feature_image size="xs"}}" alt="{{title}}">{{else}}<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>{{/if}}</span>
+                        <span class="quote-card__avatar">{{#if feature_image}}<img src="{{img_url feature_image size="xs" format="webp"}}" alt="{{title}}">{{else}}<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>{{/if}}</span>
                         <span><b>{{title}}</b>{{#primary_tag}}<small>{{name}}</small>{{/primary_tag}}</span>
                     </figcaption>
                 </figure>

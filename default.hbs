@@ -25,8 +25,8 @@
 
             {{!-- CENTER: logo --}}
             <a class="mmm-nav__logo" href="{{@site.url}}">
-                {{#if @custom.logo}}<img src="{{@custom.logo}}" alt="{{@site.title}}">
-                {{else}}{{#if @site.logo}}<img src="{{@site.logo}}" alt="{{@site.title}}">{{else}}<span class="mmm-logo-text">{{@site.title}}</span>{{/if}}{{/if}}
+                {{#if @custom.logo}}<img src="{{img_url @custom.logo size="s" format="webp"}}" alt="{{@site.title}}">
+                {{else}}{{#if @site.logo}}<img src="{{img_url @site.logo size="s" format="webp"}}" alt="{{@site.title}}">{{else}}<span class="mmm-logo-text">{{@site.title}}</span>{{/if}}{{/if}}
             </a>
 
             {{!-- RIGHT: donate + burger --}}

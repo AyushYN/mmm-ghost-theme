@@ -1,7 +1,7 @@
 {{!< default}}
 {{#page}}
 <header class="page-hero page-hero--image">
-    {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl"}}')"></div>{{else}}<div class="page-hero__bg page-hero__bg--grad"></div>{{/if}}
+    {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl" format="webp"}}')"></div>{{else}}<div class="page-hero__bg page-hero__bg--grad"></div>{{/if}}
     <span class="page-hero__scrim"></span>
     <div class="container page-hero__inner">
         <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> {{title}}</nav>
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="ped-row__media">
-                        <div class="ped-row__img{{#unless feature_image}} is-grad{{/unless}}"{{#if feature_image}} style="background-image:url('{{img_url feature_image size="l"}}')"{{/if}}></div>
+                        <div class="ped-row__img{{#unless feature_image}} is-grad{{/unless}}"{{#if feature_image}} style="background-image:url('{{img_url feature_image size="l" format="webp"}}')"{{/if}}></div>
                     </div>
                 </article>
                 {{/foreach}}

@@ -26,7 +26,7 @@
             <div class="event-grid">
                 {{#foreach upcoming}}
                 <article class="event-card reveal">
-                    <div class="event-card__media{{#unless feature_image}} is-grad{{/unless}}"{{#if feature_image}} style="background-image:url('{{img_url feature_image size="m"}}')"{{/if}}>
+                    <div class="event-card__media{{#unless feature_image}} is-grad{{/unless}}"{{#if feature_image}} style="background-image:url('{{img_url feature_image size="m" format="webp"}}')"{{/if}}>
                         <span class="event-card__date">{{date format="DD MMM"}}</span>
                     </div>
                     <div class="event-card__body">
@@ -52,7 +52,7 @@
             <div class="event-grid">
                 {{#foreach past}}
                 <article class="event-card event-card--past reveal">
-                    <div class="event-card__media{{#unless feature_image}} is-grad{{/unless}}"{{#if feature_image}} style="background-image:url('{{img_url feature_image size="m"}}')"{{/if}}>
+                    <div class="event-card__media{{#unless feature_image}} is-grad{{/unless}}"{{#if feature_image}} style="background-image:url('{{img_url feature_image size="m" format="webp"}}')"{{/if}}>
                         <span class="event-card__date">{{date format="DD MMM YYYY"}}</span>
                     </div>
                     <div class="event-card__body">
@@ -74,7 +74,7 @@
     {{#unless check}}
     <section class="section">
         <div class="container">
-            <p class="empty-note">No events right now. Check back soon or <a href="/contact/">contact us</a> to enquire.</p>
+            <p class="empty-note">No events right now. Check back soon or <a href="{{@site.url}}/contact/">contact us</a> to enquire.</p>
         </div>
     </section>
     {{/unless}}

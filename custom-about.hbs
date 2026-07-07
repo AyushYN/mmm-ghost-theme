@@ -9,7 +9,7 @@
 
 {{!-- HERO --}}
 <header class="ab-hero">
-    {{#if feature_image}}<div class="ab-hero__bg" style="background-image:url('{{img_url feature_image size="xl"}}')"></div>{{else}}<div class="ab-hero__bg page-hero__bg--grad"></div>{{/if}}
+    {{#if feature_image}}<div class="ab-hero__bg" style="background-image:url('{{img_url feature_image size="xl" format="webp"}}')"></div>{{else}}<div class="ab-hero__bg page-hero__bg--grad"></div>{{/if}}
     <span class="ab-hero__scrim"></span>
     <div class="container ab-hero__inner">
         <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> {{title}}</nav>
@@ -24,7 +24,7 @@
         <div class="about-split">
             <div class="about-split__media reveal"
                  data-media="{{@custom.about_media_url}}"
-                 data-fallback="{{#if @site.cover_image}}{{img_url @site.cover_image size="l"}}{{/if}}">
+                 data-fallback="{{#if @site.cover_image}}{{img_url @site.cover_image size="l" format="webp"}}{{/if}}">
                 <div class="about-split__frame">
                 </div>
             </div>
@@ -33,8 +33,8 @@
                 <h2>Four decades of standing beside the vulnerable</h2>
                 <div class="prose gh-content">{{content}}</div>
                 <div class="ab-intro__cta">
-                    <a href="/programs/" class="btn btn--accent">Our Programmes {{> "icon-arrow"}}</a>
-                    <a href="/impact/" class="btn btn--outline">See our Impact</a>
+                    <a href="{{@site.url}}/programs/" class="btn btn--accent">Our Programmes {{> "icon-arrow"}}</a>
+                    <a href="{{@site.url}}/impact/" class="btn btn--outline">See our Impact</a>
                 </div>
             </div>
         </div>
@@ -123,7 +123,7 @@
                 <div class="tl-track"><div class="tl-line"></div><div class="tl-progress" id="mmmTlProgress"></div></div>
                 <div class="tl-items">
                 {{#foreach ms}}
-                <div class="tl-item" data-img="{{#if feature_image}}{{img_url feature_image size="m"}}{{/if}}">
+                <div class="tl-item" data-img="{{#if feature_image}}{{img_url feature_image size="m" format="webp"}}{{/if}}">
                     <span class="tl-dot"></span>
                     <div class="tl-card"><span class="tl-year">{{title}}</span><p>{{excerpt}}</p></div>
                 </div>
@@ -166,7 +166,7 @@
             </div>
             {{/if}}
         {{/get}}
-        <p class="center muted" style="margin-top:1.5rem">View full registration details on our <a href="/legal-status/">Legal Status</a> page.</p>
+        <p class="center muted" style="margin-top:1.5rem">View full registration details on our <a href="{{@site.url}}/legal-status/">Legal Status</a> page.</p>
     </div>
 </section>
 

@@ -86,7 +86,7 @@
             <div class="tax-note"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>Donations are eligible for tax exemption under Section 80G.</p></div>
         </div>
         <aside class="donate__side reveal reveal--d1">
-            {{#if feature_image}}<div class="donate__qr"><img src="{{img_url feature_image size="m"}}" alt="Donation QR code"></div>{{/if}}
+            {{#if feature_image}}<div class="donate__qr"><img src="{{img_url feature_image size="m" format="webp"}}" alt="Donation QR code"></div>{{/if}}
             {{!-- Gift tiers: page slug "our-donate-tiers" — edit in Ghost Admin → Pages --}}
             {{#get "pages" slug="our-donate-tiers" as |tiers|}}
                 {{#if tiers}}

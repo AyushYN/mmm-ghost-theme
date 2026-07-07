@@ -1,7 +1,7 @@
 {{!< default}}
 {{#page}}
 <header class="page-hero page-hero--image">
-    {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl"}}')"></div>{{else}}<div class="page-hero__bg page-hero__bg--grad"></div>{{/if}}
+    {{#if feature_image}}<div class="page-hero__bg" style="background-image:url('{{img_url feature_image size="xl" format="webp"}}')"></div>{{else}}<div class="page-hero__bg page-hero__bg--grad"></div>{{/if}}
     <span class="page-hero__scrim"></span>
     <div class="container page-hero__inner">
         <nav class="crumb"><a href="{{@site.url}}">Home</a> <span>/</span> {{title}}</nav>
@@ -56,7 +56,7 @@
     {{#if stories}}
     <section class="section bg-soft">
         <div class="container">
-            <div class="shead reveal"><div><span class="eyebrow">Behind the Numbers</span><h2>Lives transformed</h2></div><a href="/tag/success-stories/" class="btn btn--outline">All stories {{> "icon-arrow"}}</a></div>
+            <div class="shead reveal"><div><span class="eyebrow">Behind the Numbers</span><h2>Lives transformed</h2></div><a href="{{@site.url}}/tag/success-stories/" class="btn btn--outline">All stories {{> "icon-arrow"}}</a></div>
             <div class="grid grid-3">{{#foreach stories}}{{> "post-card"}}{{/foreach}}</div>
         </div>
     </section>

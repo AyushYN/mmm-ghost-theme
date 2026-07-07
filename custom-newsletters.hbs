@@ -31,7 +31,7 @@
                 {{#foreach letters}}
                 <article class="nl-card reveal" tabindex="0">
                     <a href="{{url}}" class="nl-card__cover">
-                        {{#if feature_image}}<img src="{{img_url feature_image size="m"}}" alt="{{title}}" loading="lazy">{{else}}<span class="nl-card__ph is-grad g-blue"><svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>{{/if}}
+                        {{#if feature_image}}<img src="{{img_url feature_image size="m" format="webp"}}" alt="{{title}}" loading="lazy">{{else}}<span class="nl-card__ph is-grad g-blue"><svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>{{/if}}
                     </a>
                     <div class="nl-card__body">
                         <span class="nl-card__date">{{date format="YYYY"}}</span>
