@@ -56,7 +56,13 @@
             <div class="ab-band__cards">
                 {{#foreach vmg}}
                 <article class="ab-bandcard reveal{{#match @number "2"}} reveal--d1{{/match}}{{#match @number "3"}} reveal--d2{{/match}}">
-                    <span class="ab-bandcard__ico">{{#match @number "1"}}<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>{{/match}}{{#match @number "2"}}<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg>{{/match}}{{#match @number "3"}}<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M10 6h10M10 12h10M10 18h10M4 6l1.2 1.2L7.5 5M4 12l1.2 1.2L7.5 11M4 18l1.2 1.2L7.5 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>{{/match}}</span>
+                    <span class="ab-bandcard__ico">
+                        {{#match @number "1"}}<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>{{/match}}
+                        {{#match @number "2"}}<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg>{{/match}}
+                        {{#match @number "3"}}<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M10 6h10M10 12h10M10 18h10M4 6l1.2 1.2L7.5 5M4 12l1.2 1.2L7.5 11M4 18l1.2 1.2L7.5 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>{{/match}}
+                        {{!-- fallback icon if position > 3 --}}
+                        {{#unless @number}}<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>{{/unless}}
+                    </span>
                     <h3>{{title}}</h3>
                     {{#if content}}<div class="ab-bandcard__list gh-content">{{{content}}}</div>{{else}}<p>{{excerpt}}</p>{{/if}}
                 </article>
@@ -148,9 +154,18 @@
 <section class="section bg-soft">
     <div class="container">
         <div class="shead-minimal reveal"><span class="shead-label">Transparency</span><h2>Registered &amp; compliant</h2></div>
-        <div class="legal-badges reveal" data-badges="{{@custom.footer_reg_line}}">
-            {{!-- JS splits footer_reg_line by · and renders spans. Inline fallback removed. --}}
-        </div>
+        {{!-- Pull same registration cards from our-legal page so About and Legal page show identical content --}}
+        {{#get "pages" slug="our-legal" as |lg|}}
+            {{#if lg}}
+            <div class="reg-grid reveal">
+                {{#foreach lg}}<div class="prose gh-content">{{content}}</div>{{/foreach}}
+            </div>
+            {{else}}
+            <div class="legal-badges reveal" data-badges="{{@custom.footer_reg_line}}">
+                {{!-- JS splits footer_reg_line by · and renders spans as fallback --}}
+            </div>
+            {{/if}}
+        {{/get}}
         <p class="center muted" style="margin-top:1.5rem">View full registration details on our <a href="/legal-status/">Legal Status</a> page.</p>
     </div>
 </section>
