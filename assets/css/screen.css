@@ -2145,13 +2145,10 @@ body:not(.is-home) .site-header--transparent .nav-sub .nav-item>a:hover{backgrou
 /* Remove double donate-stats-banner transform conflict */
 .donate-stats-banner__inner{transform:none;margin-top:0}
 
-/* ---- Nav dropdown: JS-only, no CSS hover (prevents expand-on-click) ---- */
-/* Remove CSS :hover trigger — dropdowns controlled exclusively by .js-open */
+/* ---- Nav dropdown: hover to open, click also supported ---- */
 .nav-build .has-sub>.nav-sub{opacity:0;visibility:hidden;transform:translateY(8px)}
-.nav-build .has-sub.js-open>.nav-sub{opacity:1 !important;visibility:visible !important;transform:none !important}
-.nav-build .has-sub.js-open>.a .caret,.nav-build .has-sub.js-open>a .caret{transform:rotate(225deg) !important;margin-top:2px !important}
-/* Kill any residual :hover state on the dropdown */
-.nav-build .has-sub:not(.js-open)>.nav-sub{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}
+.nav-build .has-sub:hover>.nav-sub,.nav-build .has-sub.open>.nav-sub{opacity:1;visibility:visible;transform:none}
+.nav-build .has-sub:hover>a .caret,.nav-build .has-sub.open>a .caret{transform:rotate(225deg);margin-top:2px}
 
 @media(max-width:768px){
   /* Mobile: page hero padding accounts for smaller nav */
