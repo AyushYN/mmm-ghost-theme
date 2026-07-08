@@ -147,6 +147,11 @@ h1,h2,h3,h4{font-family:var(--f-head);line-height:1.12;font-weight:600;color:var
 .hero__dots{position:absolute;left:5%;bottom:2.2rem;z-index:3;display:flex;gap:.55rem;pointer-events:none}
 .hero__dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.8);transition:.25s var(--ease);cursor:pointer;pointer-events:auto}
 .hero__dot.is-active{background:#fff;width:30px;border-radius:6px}
+@media(max-width:600px){
+  .hero__inner{padding-bottom:4.5rem}
+  .hero__dots{bottom:1.5rem}
+  .hero__cta{margin-bottom:2.4rem}
+}
 .hero__arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.32);backdrop-filter:blur(8px);transition:.25s var(--ease)}
 .hero__arrow:hover{background:var(--c-rust);border-color:var(--c-rust)}
 .hero__arrow--prev{left:1.5rem}
