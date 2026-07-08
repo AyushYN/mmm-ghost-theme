@@ -27,7 +27,6 @@
     },
     "custom": {
       "logo": { "type": "image", "description": "Logo for the navbar & footer (falls back to Settings -> General logo)" },
-      "hero_eyebrow": { "type": "text", "default": "Morigaon, Assam \u00b7 Serving Since 1979" },
       "hero_headline": { "type": "text", "default": "Empowering communities, securing futures" },
       "hero_subtext": { "type": "text", "default": "For over four decades, Morigaon Mahila Mehfil has stood beside the women and children of Assam - through health, education, livelihood, women's rights and disaster response." },
 

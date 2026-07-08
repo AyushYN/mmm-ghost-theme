@@ -680,12 +680,15 @@
     var next = wrap ? wrap.querySelector('.carousel-btn.next') : null;
     var n = cards.length, active = 0;
     function layout(){
+      var isMobile = window.innerWidth <= 600;
+      var shift = isMobile ? 40 : 62;
+      var rotate = isMobile ? 3 : 5;
       cards.forEach(function(card, i){
         var off = i - active;
         if (off > n / 2) off -= n;
         if (off < -n / 2) off += n;
         var abs = Math.abs(off);
-        card.style.transform = 'translateX(' + (off * 62) + 'px) rotate(' + (off * 5) + 'deg) scale(' + (1 - abs * 0.08) + ')';
+        card.style.transform = 'translateX(' + (off * shift) + 'px) rotate(' + (off * rotate) + 'deg) scale(' + (1 - abs * 0.08) + ')';
         card.style.opacity = abs > 2 ? '0' : String(1 - abs * 0.22);
         card.style.zIndex = String(10 - abs);
         card.style.pointerEvents = abs > 2 ? 'none' : 'auto';
